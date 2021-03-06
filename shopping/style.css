@@ -37,9 +37,10 @@ body {
         float: left; 
     } 
   #main table {
+    display: flex;
     border: none;
     margin-top: 5px;
-    width: 912px;
+    width: 80%;
   }
   #main table th{
     font-size: 15px;
@@ -55,12 +56,9 @@ body {
     text-align: center;
   }
     #sidebar { 
-      
       text-align: right;
       word-spacing: 2px;
-      margin-left: -40px;
       width: auto; 
-      float: left; 
     }
     .cart_p{
       margin-bottom: 2px;

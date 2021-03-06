@@ -21,7 +21,7 @@ else{
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head> 
     
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta http-equiv="Content-Type" content="text/html" /> 
   <link rel="stylesheet" type="text/css" href="style.css">
    <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="../gretskiy/static/css/packedmin_all_css.css">
