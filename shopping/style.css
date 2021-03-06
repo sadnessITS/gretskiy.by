@@ -1,0 +1,83 @@
+body { 
+    font-family: Verdana; 
+    font-size: 12px; 
+    color: #444; 
+} 
+  h1, h2{
+    margin-bottom: 15px;
+    color: black;
+  }
+  h1{
+    font-size:18px;
+  }
+  h2{
+    font-size: 16px;
+  }
+  .cart_a{
+    color:#e9130c;
+    text-decoration: none;
+    font-size: medium;
+    font-weight: 600;
+  }
+  .cart_a:hover{
+    color: #b11a15;
+    text-decoration: none;
+  }
+  #container{ 
+    border: 1px solid #ebebeb !important;
+    width: 77%; 
+    margin: 30px auto; 
+    overflow: hidden; /* Set overflow: hidden to clear the floats on #main and #sidebar */
+    padding: 15px; 
+}   
+
+  
+    #main { 
+        width: 912px; 
+        float: left; 
+    } 
+  #main table {
+    border: none;
+    margin-top: 5px;
+    width: 912px;
+  }
+  #main table th{
+    font-size: 15px;
+    font-family: 'Cera Pro Bold';
+    padding:15px;
+    background-color: #e9130c;
+    color: #fff;
+    text-align: center; 
+  }
+  #main table td{
+    margin: 2px;
+    padding:5px;
+    text-align: center;
+  }
+    #sidebar { 
+      
+      text-align: right;
+      word-spacing: 2px;
+      margin-left: -40px;
+      width: auto; 
+      float: left; 
+    }
+    .cart_p{
+      margin-bottom: 2px;
+    }
+    button .div {
+      display: block;
+      text-decoration: none;
+      border: none;
+    }
+    .ctrl_sum{
+      font-weight: 700; 
+      text-align: left;
+      margin-top: 5px;
+    }
+    .update{
+      background-color: rgba(128, 128, 128, 0.1);
+      padding: 15px 2px;
+      text-align: center;
+      width: 20%;
+    }
