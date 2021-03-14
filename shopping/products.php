@@ -38,8 +38,9 @@
     ?> 
     <table> 
         <tr> 
+            <th>Фото</th>
             <th>Название товара</th> 
-            <th>Количество</th> 
+            <th>Описание</th> 
             <th>Цена, $</th> 
             <th></th> 
         </tr> 
@@ -52,7 +53,8 @@
             while ($row=mysql_fetch_array($query)) { 
                   
         ?> 
-            <tr> 
+            <tr>
+                <td><img src="<?php echo $row['picture'] ?>"></td> 
                 <td><?php echo $row['name'] ?></td> 
                 <td><?php echo $row['description'] ?></td> 
                 <td>$<?php echo $row['price'] ?></td> 
