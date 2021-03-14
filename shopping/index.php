@@ -218,7 +218,7 @@ else{
   
     if(isset($_SESSION['cart'])){ 
           
-       $sql="SELECT * FROM `elements` ORDER BY name ASC";
+       $sql="SELECT * FROM `product` ORDER BY name ASC";
              $query=mysql_query($sql);
         while ($row=mysql_fetch_array($query)){ 
               
