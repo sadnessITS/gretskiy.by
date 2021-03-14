@@ -9,7 +9,5 @@ if (!$dbconnect) { echo ("Не могу подключиться к сервер
 if(!mysql_set_charset($charset)){
 	prit("Ошибка кодировки");
 }
-
 mysql_select_db($dbname);
-
 ?>

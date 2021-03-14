@@ -26,11 +26,12 @@ foreach($_POST['quantity'] as $key => $val) {
           
         <?php 
           
-            $sql="SELECT * FROM `elements` ORDER BY name ASC"; 
+            $sql="SELECT * FROM `product` ORDER BY name ASC"; 
                       
                   $query=mysql_query($sql); 
                     $totalprice=0; 
                     while($rows=mysql_fetch_array($query)){ 
+                        if($_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] != 0){
                         $subtotal=$_SESSION['cart'][$rows['id']]['quantity']*$rows['price']; 
                         $totalprice+=$subtotal; 	
                     ?> 
@@ -42,7 +43,8 @@ foreach($_POST['quantity'] as $key => $val) {
                         </tr> 
                     <?php 
                           
-                    } 
+                    }
+                } 
         ?> 
                     
           
@@ -54,3 +56,5 @@ foreach($_POST['quantity'] as $key => $val) {
 </form> 
 <br /> 
 <p>Для удаления товара из корзины установите в графе "Количество" 0. </p>
+
+

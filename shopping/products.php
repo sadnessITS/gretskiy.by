@@ -10,7 +10,7 @@
               
         }else{ 
               
-            $sql_s="SELECT * FROM `elements` where id={$id}"; 
+            $sql_s="SELECT * FROM `product` where id={$id}"; 
             $query_s=mysql_query($sql_s); 
                      if(mysql_num_rows($query_s)!=0)
             { 

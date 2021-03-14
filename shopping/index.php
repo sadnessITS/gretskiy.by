@@ -221,18 +221,21 @@ else{
        $sql="SELECT * FROM `product` ORDER BY name ASC";
              $query=mysql_query($sql);
         while ($row=mysql_fetch_array($query)){ 
-              
-        ?> 
-            <p class="cart_p"><?php echo $row['name'] ?> x <?php echo $_SESSION['cart'][$row['id']]['quantity'] ?></p> 
-        <?php 
-              
-        } 
+           if (($_SESSION['cart'][$row['id']]['quantity'] != '' )){
+
+  ?> <p class="cart_p"><?php echo $row['name'] ?> x <?php echo $_SESSION['cart'][$row['id']]['quantity'] ?></p> 
+            <?php
+            }
+        }
+
     ?> 
         <hr style="width: 150px;" align="right"; /> 
         <a class="cart_a" href="index.php?page=cart">Перейти к корзине</a> 
     <?php 
           
-    }else{ 
+    
+   }
+   else{ 
           
         echo "<p>Ваша корзина пуста.</p>"; 
           
