@@ -54,7 +54,7 @@
                   
         ?> 
             <tr>
-                <td><img src="<?php echo $row['picture'] ?>"></td> 
+                <td><?php echo '<img src='.$row[picture].' width="50" height="50">'?></td>
                 <td><?php echo $row['name'] ?></td> 
                 <td><?php echo $row['description'] ?></td> 
                 <td>$<?php echo $row['price'] ?></td> 

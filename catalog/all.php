@@ -1,4 +1,19 @@
-﻿
+﻿<?php
+require ("../shopping/connection.php");
+if (isset($_GET['page'])){
+$pages=array("products", "cart");
+      if (in_array($_GET['page'],$pages)){
+$_page=$_GET['page'];
+      }
+      else{
+$_page="products";
+    }
+} 
+else{
+  $_page="products";
+}
+
+    ?>
 <!DOCTYPE html>
 <html lang="ru"><meta http-equiv="content-type" content="text/html;" />
 <head>
@@ -78,7 +93,7 @@
                     <a class="menu-item" href="../index.html">Главная</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="all.html">Продукция</a>
+                      <a class="menu-item" href="all.php">Продукция</a>
                     </li>
                     <li class="toggleable">
                       <a class="menu-item" href="../about_company.html">О компании</a>
@@ -113,7 +128,7 @@
                           <a class="menu-item" href="../index.html">Главная</a>
                         </li>
                         <li class="toggleable">
-                          <a class="menu-item" href="all.html">Продукция</a>
+                          <a class="menu-item" href="all.php">Продукция</a>
                         </li>
                         <li class="toggleable">
                           <a class="menu-item" href="../about_company.html">О компании</a>
@@ -170,14 +185,14 @@
                   <div class="department-dropdown-menu" style="display: none;">
                     <ul>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
-                      <li><a href="fistashki.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
                       <li><a href="funduk.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
                       <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
                       <li><a href="lesnoy.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
                       <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
                       <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
-                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
                    </ul>
                   </div>
                </div>
@@ -228,7 +243,7 @@
   </div>
   <div class="department_bottom">
     <ul>
-      <li> <a class="department-link" href="fistashki.html">Фисташки</a></li>
+      <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
       <li> <a class="department-link" href="funduk.html">Фундук</a></li>
       <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
       <li> <a class="department-link" href="lesnoy.html">Лесной орех</a></li>
@@ -243,7 +258,7 @@
   <div class="department_bottom">
     <ul>
       <li><a class="department-link" href="obzh_lesnoy.html">Лесной орех</a></li>
-      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -277,31 +292,47 @@
                   <div class="shop-products_bottom">
                     <div class="row no-gutters-sm">
                       
-                      <div class="col-6 col-md-4">
+                      
+                        <?php>
+                            $sql="SELECT * FROM `product` ORDER BY name ASC"; 
+                            $query=mysql_query($sql); 
+                          ?>
+                          <?php
+
+                            while($row=mysql_fetch_array($query))
+                            {
+                             
+                          ?>
+                          <div class="col-6 col-md-4">
+                        <div style="justify-content: left;">
                         <div class="product">
                           <div class="product-img_block">
-                            <a class="product-img" href="../product/fistashki1.html">
-                              <img src="../gretskiy/uploads/uploads/image/product/fistashki1_vnesh.png" alt="">
+                          <a class="product-img" href="../product/fistashki1.php">
+                            <?php echo '<img src='.$row[picture].'>'?>
                             </a>
                           </div>
+                          
                           <div class="product-info_block">
-                            <h5 class="product-type">Фисташки</h5><a class="product-name" href="../product/fistashki1.html">Фисташки 1</a>
-                            
-                            <p class="product-describe">text text text text text text text text ...</p>
-                            <h5 class="product-avaiable">Вес продукта: <span>Весовой</span></h5>
+                            <h5 class="product-type" align="center"><?php echo $row['type'] ?></h5><a class="product-name" href="../product/fistashki1.php"><?php echo $row['name'] ?></a>
+                            <p class="product-describe"><?php echo $row['description'] ?></p>
+                            <h5 class="product-avaiable">Вес продукта: <span><?php echo $row['weight'] ?></span></h5>
                           </div>
                           <div class="product-select">
                            <a><button  class="round-icon-btn" href="../shopping/index.php">Заказать</button></a>
                             
                           </div>
                           <div class="product-select_list">
-                            <p class="delivery-status">Фисташки</p>
+                            <p class="delivery-status"><?php echo $row['type'] ?></p>
                             
                             <button class="normal-btn" href="../shopping/index.php">Заказать</button>
                           </div>
                         </div>
                       </div>
-                      
+                      </div>
+                        <?php
+                          }
+                        ?>
+                        
                     </div>
                   </div>
                 </div>
@@ -372,7 +403,7 @@
                        <div class="footer-quicklink">
                           <h5>Карта сайта</h5>
                           <a href="index.html">Главная</a>
-                          <a href="catalog/all.html">Продукция</a>
+                          <a href="catalog/all.php">Продукция</a>
                           <a href="about_company.html">О компании</a>
                           <a href="blog.html">Новости</a>
                           <a href="contact.html">Контакты</a>
@@ -381,7 +412,7 @@
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Свежие орехи</h5>
-                          <a href="catalog/fistashki.html">Фисташки</a>
+                          <a href="catalog/fistashki.php">Фисташки</a>
                           <a href="catalog/funduk.html">Фундук</a>
                           <a href="catalog/gretskiy_oreh.html">Грецкий орех</a>
                           <a href="catalog/lesnoy.html">Лесной орех</a>
@@ -392,7 +423,7 @@
                        <div class="footer-quicklink">
                           <h5>Обжаренные орехи</h5>
                           <a href="catalog/obzh_lesnoy.html">Лесной орех</a>
-                          <a href="catalog/obzh_fistashki.html">Фисташки</a>
+                          <a href="catalog/obzh_fistashki.php">Фисташки</a>
                        </div>
                     </div>
                  </div>
@@ -465,10 +496,10 @@
         "foundingDate": "2001",
         "address": {
          "@type": "PostalAddress",
-        "streetAddress": "ул. Баженовой, 6A",
-        "addressLocality": "Брестская область, г.Лунинец",
+        "streetAddress": "ул. Независимости",
+        "addressLocality": "4А область, г.Лунинец",
         "addressRegion": "BY",
-        "postalCode": "225644",
+        "postalCode": "221234",
         "addressCountry": "Belarus"
         },
         "contactPoint": {
@@ -483,7 +514,7 @@
          "https://twitter.com/gretskiy365",
     	 "https://www.instagram.com/gretskiy365",
     	 "https://twitter.com/Gretskiy365",
-         "https://www.youtube.com/channel/UCAFZ6wBjdfo0X8ERZIkQM-A"
+         "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
         ]}
     </script >
   

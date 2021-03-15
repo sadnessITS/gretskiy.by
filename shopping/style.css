@@ -37,10 +37,9 @@ body {
         float: left; 
     } 
   #main table {
-    display: flex;
     border: none;
     margin-top: 5px;
-    width: 80%;
+    width: 100%;
   }
   #main table th{
     font-size: 15px;
@@ -56,6 +55,7 @@ body {
     text-align: center;
   }
     #sidebar { 
+      margin-left: auto;
       text-align: right;
       word-spacing: 2px;
       width: auto; 
