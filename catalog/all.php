@@ -186,13 +186,12 @@ else{
                     <ul>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
                       <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
-                      <li><a href="funduk.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
+                      <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
                       <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="lesnoy.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
                       <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
-                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
                    </ul>
                   </div>
                </div>
@@ -244,9 +243,8 @@ else{
   <div class="department_bottom">
     <ul>
       <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
-      <li> <a class="department-link" href="funduk.html">Фундук</a></li>
+      <li> <a class="department-link" href="funduk.php">Фундук</a></li>
       <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
-      <li> <a class="department-link" href="lesnoy.html">Лесной орех</a></li>
       <li> <a class="department-link" href="mindal.html">Миндаль</a></li>
     </ul>
   </div>
@@ -257,8 +255,8 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="obzh_lesnoy.html">Лесной орех</a></li>
-      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_lesnoy.html">Фундук</a></li>
+      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -307,24 +305,23 @@ else{
                         <div style="justify-content: left;">
                         <div class="product">
                           <div class="product-img_block">
-                          <a class="product-img" href="../product/fistashki1.php">
+                          <a class="product-img" href="../product/fistashki1.php?<?php echo $row['id'] ?>">
                             <?php echo '<img src='.$row[picture].'>'?>
                             </a>
                           </div>
                           
                           <div class="product-info_block">
-                            <h5 class="product-type" align="center"><?php echo $row['type'] ?></h5><a class="product-name" href="../product/fistashki1.php"><?php echo $row['name'] ?></a>
+                            <h5 class="product-type" align="center"><?php echo $row['type'] ?></h5><a class="product-name" href="../product/fistashki1.php?<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a>
                             <p class="product-describe"><?php echo $row['description'] ?></p>
                             <h5 class="product-avaiable">Вес продукта: <span><?php echo $row['weight'] ?></span></h5>
                           </div>
                           <div class="product-select">
-                           <a><button  class="round-icon-btn" href="../shopping/index.php">Заказать</button></a>
-                            
+                           <button class="round-icon-btn" ><a class="round-icon-btn" href="../shopping/index.php">Заказать</a></button>
                           </div>
                           <div class="product-select_list">
                             <p class="delivery-status"><?php echo $row['type'] ?></p>
                             
-                            <button class="normal-btn" href="../shopping/index.php">Заказать</button>
+                            <button class="normal-btn"><a class="normal-btn" href="../shopping/index.php">Заказать</a></button>
                           </div>
                         </div>
                       </div>
@@ -402,28 +399,27 @@ else{
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Карта сайта</h5>
-                          <a href="index.html">Главная</a>
-                          <a href="catalog/all.php">Продукция</a>
-                          <a href="about_company.html">О компании</a>
-                          <a href="blog.html">Новости</a>
-                          <a href="contact.html">Контакты</a>
+                          <a href="../index.html">Главная</a>
+                          <a href="all.php">Продукция</a>
+                          <a href="../about_company.html">О компании</a>
+                          <a href="../blog.html">Новости</a>
+                          <a href="../contact.html">Контакты</a>
                        </div>
                     </div>
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Свежие орехи</h5>
-                          <a href="catalog/fistashki.php">Фисташки</a>
-                          <a href="catalog/funduk.html">Фундук</a>
-                          <a href="catalog/gretskiy_oreh.html">Грецкий орех</a>
-                          <a href="catalog/lesnoy.html">Лесной орех</a>
-                          <a href="catalog/mindal.html">Миндаль</a>
+                          <a href="fistashki.php">Фисташки</a>
+                          <a href="funduk.php">Фундук</a>
+                          <a href="gretskiy_oreh.html">Грецкий орех</a>
+                          <a href="mindal.html">Миндаль</a>
                        </div>
                     </div>
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Обжаренные орехи</h5>
-                          <a href="catalog/obzh_lesnoy.html">Лесной орех</a>
-                          <a href="catalog/obzh_fistashki.php">Фисташки</a>
+                          <a href="obzh_lesnoy.html">Фундук</a>
+                          <a href="obzh_fistashki.html">Фисташки</a>
                        </div>
                     </div>
                  </div>

@@ -12,20 +12,29 @@ $_page="products";
 else{
   $_page="products";
 }
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+     $url = "https://";   
+else  
+     $url = "http://";   
+// Append the host(domain name, ip) to the URL.   
+$url.= $_SERVER['HTTP_HOST'];   
 
+// Append the requested resource location to the URL   
+$url.= $_SERVER['REQUEST_URI'];    
+$zxc = parse_url($url, PHP_URL_QUERY);
+$id_=(int)$zxc;
+    $sql="SELECT * FROM `product` WHERE id = $id_"; 
+    $query=mysql_query($sql); 
+    $row=mysql_fetch_array($query);
+                                          
     ?>
-    <?php>
-                                        $sql="SELECT * FROM `product` WHERE id = 12"; 
-                                        $query=mysql_query($sql); 
-                                          $row=mysql_fetch_array($query);
-                                          ?>
 <!DOCTYPE html>
 <html lang="ru">
  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>Фисташки - ФХ “Грицкевичей”, Gretskiy</title>
+    <title><?php echo $row['type'] ?> - ФХ “Грицкевичей”, Gretskiy</title>
     <meta name="description" content="None">
     <meta name="keywords" content="">
     <link rel="preload" href="../gretskiy/static/fonts/ElegantIcons.woff" as="font" type="font/woff" crossorigin>
@@ -190,17 +199,16 @@ else{
                   <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Продукция<span><i class="arrow_carrot-down"></i></span></div>
                   <div class="department-dropdown-menu" style="display: none;">
                     <ul>
-                      <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
-                      <li><a href="../catalog/fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
-                      <li><a href="../catalog/funduk.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="../catalog/gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="../catalog/lesnoy.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
-                      <li><a href="../catalog/mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                    <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
+                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
+                      <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="../catalog/obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Лесной орех</a></li>
-                      <li><a href="../catalog/obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
-                   </ul>
-                  </div>
+                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                    </ul>  
+                    </div>
                 </div>
               </div>
               <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
@@ -251,11 +259,10 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li> <a class="department-link" href="../catalog/fistashki.php">Фисташки</a></li>
-      <li> <a class="department-link" href="../catalog/funduk.html">Фундук</a></li>
-      <li> <a class="department-link" href="../catalog/gretskiy_oreh.html">Грецкий орех</a></li>
-      <li> <a class="department-link" href="../catalog/lesnoy.html">Лесной орех</a></li>
-      <li> <a class="department-link" href="../catalog/mindal.html">Миндаль</a></li>
+      <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
+      <li> <a class="department-link" href="funduk.php">Фундук</a></li>
+      <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
+      <li> <a class="department-link" href="mindal.html">Миндаль</a></li>
     </ul>
   </div>
 </div>
@@ -265,8 +272,8 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="../catalog/obzh_lesnoy.html">Лесной орех</a></li>
-      <li><a class="department-link" href="../catalog/obzh_fistashki.php">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_lesnoy.html">Фундук</a></li>
+      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -444,7 +451,7 @@ else{
                     <div class="footer-quicklink">
                        <h5>Свежие орехи</h5>
                        <a href="../catalog/fistashki.php">Фисташки</a>
-                       <a href="../catalog/funduk.html">Фундук</a>
+                       <a href="../catalog/funduk.php">Фундук</a>
                        <a href="../catalog/gretskiy_oreh.html">Грецкий орех</a>
                        <a href="../catalog/lesnoy.html">Лесной орех</a>
                        <a href="../catalog/mindal.html">Миндаль</a>
@@ -454,7 +461,7 @@ else{
                     <div class="footer-quicklink">
                        <h5>Обжаренные орехи</h5>
                        <a href="../catalog/obzh_lesnoy.html">Лесной орех</a>
-                       <a href="../catalog/obzh_fistashki.php">Фисташки</a>
+                       <a href="../catalog/obzh_fistashki.html">Фисташки</a>
                     </div>
                  </div>
               </div>
