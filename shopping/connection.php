@@ -4,10 +4,9 @@ $dbusername = "root"; // Пользователь БД
 $dbpass = ""; // Пароль к базе
 $dbname = "web"; // Имя базы
 $charset = "utf8";
-$dbconnect = mysql_connect ($dbhost, $dbusername, $dbpass);
+$dbconnect = mysqli_connect ($dbhost, $dbusername, $dbpass, $dbname);
 if (!$dbconnect) { echo ("Не могу подключиться к серверу базы данных!"); }
-if(!mysql_set_charset($charset)){
-	prit("Ошибка кодировки");
+if(!mysqli_set_charset($dbconnect, $charset)){
+	print("Ошибка кодировки");
 }
-mysql_select_db($dbname);
 ?>

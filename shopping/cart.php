@@ -3,7 +3,7 @@
 if(isset($_POST['submit'])){ 
   
 foreach($_POST['quantity'] as $key => $val) { 
-    if($val==0) { 
+    if($val == 0) { 
         unset($_SESSION['cart'][$key]); 
     }else{ 
         $_SESSION['cart'][$key]['quantity']=$val; 
@@ -28,9 +28,9 @@ foreach($_POST['quantity'] as $key => $val) {
           
             $sql="SELECT * FROM `product` ORDER BY name ASC"; 
                       
-                  $query=mysql_query($sql); 
+                  $query=mysqli_query($dbconnect, $sql); 
                     $totalprice=0; 
-                    while($rows=mysql_fetch_array($query)){ 
+                    while($rows=mysqli_fetch_array($query)){ 
                         if($_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] != 0){
                         $subtotal=$_SESSION['cart'][$rows['id']]['quantity']*$rows['price']; 
                         $totalprice+=$subtotal; 	

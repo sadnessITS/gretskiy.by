@@ -1,4 +1,18 @@
-﻿
+﻿<?php
+require ("../shopping/connection.php");
+if (isset($_GET['page'])){
+$pages=array("products", "cart");
+      if (in_array($_GET['page'],$pages)){
+$_page=$_GET['page'];
+      }
+      else{
+$_page="products";
+    }
+} 
+else{
+  $_page="products";
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -173,11 +187,11 @@
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
                       <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
                       <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                      <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
-                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
 </ul>
                   </div>
                </div>
@@ -231,8 +245,8 @@
     <ul>
       <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
       <li> <a class="department-link" href="funduk.php">Фундук</a></li>
-      <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
-      <li> <a class="department-link" href="mindal.html">Миндаль</a></li>
+      <li> <a class="department-link" href="gretskiy_oreh.php">Грецкий орех</a></li>
+      <li> <a class="department-link" href="mindal.php">Миндаль</a></li>
     </ul>
   </div>
 </div>
@@ -242,8 +256,8 @@
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="obzh_lesnoy.html">Фундук</a></li>
-      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_lesnoy.php">Фундук</a></li>
+      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -276,7 +290,42 @@
                   </div>
                   <div class="shop-products_bottom">
                     <div class="row no-gutters-sm">
-                      
+                      <?php
+                      $sql="SELECT * FROM `product` WHERE `If_fried` = 1  AND `type_n` = 2 ORDER BY name ASC"; 
+                      $query=mysqli_query($dbconnect, $sql); 
+                    ?>
+                  <?php
+                  while($row=mysqli_fetch_array($query))
+                  {
+                  ?>
+                  <div class="col-6 col-md-4">
+                    <div class="product">
+                      <div class="product-img_block">
+                        <a class="product-img" href="../product/fistashki1.php?<?php echo $row['id'] ?>">
+                        <?php echo '<img src='.$row['picture'].'>'?>
+                          </a>
+                      </div>
+                      <div class="product-info_block">
+                          <h5 class="product-type" align="center"><?php echo $row['type'] ?></h5>
+                          <a class="product-name" href="../product/fistashki1.php?<?php echo $row['id'] ?>">
+                            <?php echo $row['name'] ?>
+                          </a>
+                            <p class="product-describe"><?php echo $row['description'] ?></p>
+                            <h5 class="product-avaiable">Вес продукта: <span><?php echo $row['weight'] ?></span></h5>
+                      </div>
+                      <div class="product-select">
+                      <a href="../shopping/index.php"><button class="round-icon-btn" >Заказать</button></a>
+                          </div>
+                          <div class="product-select_list">
+                            <p class="delivery-status"><?php echo $row['type'] ?></p>
+                            
+                            <a href="../shopping/index.php"><button class="normal-btn" >Заказать</button></a>
+                      </div>
+                    </div>
+                  </div>
+                    <?php 
+                            } 
+                    ?>
                     </div>
                   </div>
                   <div class="shop-pagination">
@@ -361,15 +410,15 @@
                           <h5>Свежие орехи</h5>
                           <a href="fistashki.php">Фисташки</a>
                           <a href="funduk.php">Фундук</a>
-                          <a href="gretskiy_oreh.html">Грецкий орех</a>
-                          <a href="mindal.html">Миндаль</a>
+                          <a href="gretskiy_oreh.php">Грецкий орех</a>
+                          <a href="mindal.php">Миндаль</a>
                        </div>
                     </div>
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Обжаренные орехи</h5>
-                          <a href="obzh_lesnoy.html">Фундук</a>
-                          <a href="obzh_fistashki.html">Фисташки</a>
+                          <a href="obzh_lesnoy.php">Фундук</a>
+                          <a href="obzh_fistashki.php">Фисташки</a>
                        </div>
                     </div>
               </div>

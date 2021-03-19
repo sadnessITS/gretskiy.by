@@ -24,8 +24,8 @@ $url.= $_SERVER['REQUEST_URI'];
 $zxc = parse_url($url, PHP_URL_QUERY);
 $id_=(int)$zxc;
     $sql="SELECT * FROM `product` WHERE id = $id_"; 
-    $query=mysql_query($sql); 
-    $row=mysql_fetch_array($query);
+    $query=mysqli_query($dbconnect,$sql); 
+    $row=mysqli_fetch_array($query);
                                           
     ?>
 <!DOCTYPE html>
@@ -202,11 +202,11 @@ $id_=(int)$zxc;
                     <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
                       <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
                       <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                      <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
-                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
                     </ul>  
                     </div>
                 </div>
@@ -261,8 +261,8 @@ $id_=(int)$zxc;
     <ul>
       <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
       <li> <a class="department-link" href="funduk.php">Фундук</a></li>
-      <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
-      <li> <a class="department-link" href="mindal.html">Миндаль</a></li>
+      <li> <a class="department-link" href="gretskiy_oreh.php">Грецкий орех</a></li>
+      <li> <a class="department-link" href="mindal.php">Миндаль</a></li>
     </ul>
   </div>
 </div>
@@ -272,8 +272,8 @@ $id_=(int)$zxc;
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="obzh_lesnoy.html">Фундук</a></li>
-      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_lesnoy.php">Фундук</a></li>
+      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -295,13 +295,13 @@ $id_=(int)$zxc;
                         
                         <div class="big-img_block">
                           <a href="../gretskiy/uploads/uploads/image/product/fistashki1_vnut1.png" style="width:inherit;">
-                          <?php echo '<img src="'.$row[picture].'" alt="product image">'?>
+                          <?php echo '<img src="'.$row['picture'].'" alt="product image">'?>
                       </a></div>
                         
                       </div>
                       <div class="slide-img">
                         
-                        <div class="slide-img_block"><?php echo '<img src="'.$row[picture].'" alt="product image">'?></div>
+                        <div class="slide-img_block"><?php echo '<img src="'.$row['picture'].'" alt="product image">'?></div>
                         
                       </div>
                     </div>
@@ -452,16 +452,16 @@ $id_=(int)$zxc;
                        <h5>Свежие орехи</h5>
                        <a href="../catalog/fistashki.php">Фисташки</a>
                        <a href="../catalog/funduk.php">Фундук</a>
-                       <a href="../catalog/gretskiy_oreh.html">Грецкий орех</a>
+                       <a href="../catalog/gretskiy_oreh.php">Грецкий орех</a>
                        <a href="../catalog/lesnoy.html">Лесной орех</a>
-                       <a href="../catalog/mindal.html">Миндаль</a>
+                       <a href="../catalog/mindal.php">Миндаль</a>
                     </div>
                  </div>
                  <div class="col-12 col-sm-4 text-sm-center text-md-left">
                     <div class="footer-quicklink">
                        <h5>Обжаренные орехи</h5>
-                       <a href="../catalog/obzh_lesnoy.html">Лесной орех</a>
-                       <a href="../catalog/obzh_fistashki.html">Фисташки</a>
+                       <a href="../catalog/obzh_lesnoy.php">Лесной орех</a>
+                       <a href="../catalog/obzh_fistashki.php">Фисташки</a>
                     </div>
                  </div>
               </div>

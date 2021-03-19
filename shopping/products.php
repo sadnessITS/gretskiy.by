@@ -11,10 +11,10 @@
         }else{ 
               
             $sql_s="SELECT * FROM `product` where id={$id}"; 
-            $query_s=mysql_query($sql_s); 
-                     if(mysql_num_rows($query_s)!=0)
+            $query_s=mysqli_query($dbconnect, $sql_s); 
+                     if(mysqli_num_rows($query_s)!=0)
             { 
-                $row_s=mysql_fetch_array($query_s); 
+                $row_s=mysqli_fetch_array($query_s); 
                   
                 $_SESSION['cart'][$row_s['id']]=array("quantity" => 1,"price" => $row_s['price']); 
                   
@@ -48,13 +48,13 @@
         <?php 
           
             $sql="SELECT * FROM `product` ORDER BY name ASC"; 
-            $query=mysql_query($sql); 
+            $query=mysqli_query($dbconnect, $sql); 
               
-            while ($row=mysql_fetch_array($query)) { 
+            while ($row=mysqli_fetch_array($query)) { 
                   
         ?> 
             <tr>
-                <td><?php echo '<img src='.$row[picture].' width="50" height="50">'?></td>
+                <td><?php echo '<img src='.$row['picture'].' width="50" height="50">'?></td>
                 <td><?php echo $row['name'] ?></td> 
                 <td><?php echo $row['description'] ?></td> 
                 <td>$<?php echo $row['price'] ?></td> 

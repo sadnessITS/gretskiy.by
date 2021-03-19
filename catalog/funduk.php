@@ -188,11 +188,11 @@ else{
                     <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
                       <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
                       <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="gretskiy_oreh.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="mindal.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                      <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.html" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
-                      <li><a href="obzh_fistashki.html"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
 </ul>
                   </div>
                </div>
@@ -246,8 +246,8 @@ else{
     <ul>
       <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
       <li> <a class="department-link" href="funduk.php">Фундук</a></li>
-      <li> <a class="department-link" href="gretskiy_oreh.html">Грецкий орех</a></li>
-      <li> <a class="department-link" href="mindal.html">Миндаль</a></li>
+      <li> <a class="department-link" href="gretskiy_oreh.php">Грецкий орех</a></li>
+      <li> <a class="department-link" href="mindal.php">Миндаль</a></li>
     </ul>
   </div>
 </div>
@@ -257,8 +257,8 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="obzh_lesnoy.html">Фундук</a></li>
-      <li><a class="department-link" href="obzh_fistashki.html">Фисташки</a></li>
+      <li><a class="department-link" href="obzh_lesnoy.php">Фундук</a></li>
+      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -293,17 +293,17 @@ else{
                     <div class="row no-gutters-sm">
                       <?php
                       $sql="SELECT * FROM `product` WHERE `type_n` = 2 ORDER BY name ASC"; 
-                      $query=mysql_query($sql); 
+                      $query=mysqli_query($dbconnect, $sql); 
                     ?>
                   <?php
-                  while($row=mysql_fetch_array($query))
+                  while($row=mysqli_fetch_array($query))
                   {
                   ?>
                   <div class="col-6 col-md-4">
                     <div class="product">
                       <div class="product-img_block">
                         <a class="product-img" href="../product/fistashki1.php?<?php echo $row['id'] ?>">
-                        <?php echo '<img src='.$row[picture].'>'?>
+                        <?php echo '<img src='.$row['picture'].'>'?>
                           </a>
                       </div>
                       <div class="product-info_block">
@@ -315,11 +315,12 @@ else{
                             <h5 class="product-avaiable">Вес продукта: <span><?php echo $row['weight'] ?></span></h5>
                       </div>
                       <div class="product-select">
-                      <button class="round-icon-btn" ><a class="round-icon-btn" href="../shopping/index.php">Заказать</a></button>
-                      </div>
-                      <div class="product-select_list">
-                          <p class="delivery-status"><?php echo $row['type'] ?></p>
-                          <button class="normal-btn"><a class="normal-btn" href="../shopping/index.php">Заказать</a></button>
+                      <a href="../shopping/index.php"><button class="round-icon-btn" >Заказать</button></a>
+                          </div>
+                          <div class="product-select_list">
+                            <p class="delivery-status"><?php echo $row['type'] ?></p>
+                            
+                            <a href="../shopping/index.php"><button class="normal-btn" >Заказать</button></a>
                       </div>
                     </div>
                   </div>
@@ -410,15 +411,15 @@ else{
                           <h5>Свежие орехи</h5>
                           <a href="fistashki.php">Фисташки</a>
                           <a href="funduk.php">Фундук</a>
-                          <a href="gretskiy_oreh.html">Грецкий орех</a>
-                          <a href="mindal.html">Миндаль</a>
+                          <a href="gretskiy_oreh.php">Грецкий орех</a>
+                          <a href="mindal.php">Миндаль</a>
                        </div>
                     </div>
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Обжаренные орехи</h5>
-                          <a href="obzh_lesnoy.html">Фундук</a>
-                          <a href="obzh_fistashki.html">Фисташки</a>
+                          <a href="obzh_lesnoy.php">Фундук</a>
+                          <a href="obzh_fistashki.php">Фисташки</a>
                        </div>
                     </div>
               </div>
