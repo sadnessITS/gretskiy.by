@@ -221,7 +221,8 @@ else{
              $query=mysqli_query($dbconnect, $sql);
         while ($row=mysqli_fetch_array($query))
         { 
-           $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];
+         
+           $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];  
            if ($temp_quantity) 
            {
             ?>

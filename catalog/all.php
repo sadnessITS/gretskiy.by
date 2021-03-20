@@ -185,7 +185,7 @@ else{
                   <div class="department-dropdown-menu" style="display: none;">
                     <ul>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
-                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
                       <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
                       <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
                       <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
