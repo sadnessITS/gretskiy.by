@@ -78,10 +78,10 @@ $id_=(int)$zxc;
                   <p class="d-flex align-items-center"><a href="mail:expy" class="contact-line-field"><i class="fas fa-envelope"></i>export@gretskiy.by</a></p>
                   <p class="d-flex align-items-center"><a href="tel:+370407" class="contact-line-field url-phone"><i class="fas fa-phone"></i>+375 33 323 03 01</a></p>
                   <div class="phone-link d-flex">
-                    <a href="https://telegr"><i class="fab fa-telegram"> </i></a>
-                    <a href="https://30300"><i class="fab fa-whatsapp"></i></a>
-                    <a href="viber://chat3230300"><i class="fab fa-viber"> </i></a>
-                    <a href="https://wwwvita365/" target="_blank"><i class="fab fa-instagram"> </i></a>
+                  <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                   </div>
                 </div>
               </div>
@@ -172,10 +172,10 @@ $id_=(int)$zxc;
                       <a href="mail:expo"><i class="fas fa-envelope"></i> export@gretskiy.by</a>
                     </div>
                     <div class="mobile-social justify-content-center">
-                      <a href="https://wa0" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                      <a href="viber://ch33230300" target="_blank"><i class="fab fa-viber"></i></a>
-                      <a href="https://teleg" target="_blank"><i class="fab fa-telegram"></i></a>
-                      <a href="https://www.i/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                     </div>
                   </div>
                   <div class="ogamin-mobile-menu_bg"></div>
@@ -408,32 +408,32 @@ $id_=(int)$zxc;
                 <p><a href="tel:+37530301" class="contact-line-field url-phone">+375 33 323 03 01</a></p>
                 <p><a href="mail:exporiy.by" class="contact-line-field">export@gretskiy.by</a></p>
              </div>
-             <div class="footer-social">
-                <a class="round-icon-btn" href="https://wa.30301">
-                <i class="fab fa-whatsapp"> </i>
+             <<div class="footer-social">
+                <a class="round-icon-btn" href="https://wa.me/375292682290">
+                  <i class="fab fa-whatsapp"> </i>
                 </a>
-                <a class="round-icon-btn" href="https://viber://ch33230301">
-                <i class="fab fa-viber"> </i>
+                <a class="round-icon-btn" href="https://viber://chat?number=%2B375292682290">
+                  <i class="fab fa-viber"> </i>
                 </a>
-                <a class="round-icon-btn" href="https://telema">
-                <i class="fab fa-telegram"></i>
+                <a class="round-icon-btn" href="https://telegram.me/?">
+                  <i class="fab fa-telegram"></i>
                 </a>
-                <a class="round-icon-btn" href="https://www.instagrama" target="_blank">
-                <i class="fab fa-instagram"></i>
+                <a class="round-icon-btn" href="https://www.instagram.com/andreigritskevich/" target="_blank">
+                  <i class="fab fa-instagram"></i>
                 </a><br/>
-                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk." target="_blank">
-                <i class="fab fa-vk"></i>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk.com/id90535597" target="_blank">
+                  <i class="fab fa-vk"></i>
                 </a>
-                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwk.com/infi_d1ma" target="_blank">
-                <i class="fab fa-facebook"></i>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.facebook.com/?" target="_blank">
+                  <i class="fab fa-facebook"></i>
                 </a>
-                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twiinfi_d1ma" target="_blank">
-                <i class="fab fa-twitter"></i>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twitter.com/?" target="_blank">
+                  <i class="fab fa-twitter"></i>
                 </a>
-                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwwi_d1ma" target="_blank">
-                <i class="fab fa-youtube"></i>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.youtube.com/channel/?" target="_blank">
+                  <i class="fab fa-youtube"></i>
                 </a>
-             </div>
+                </div>
             </div>
             <div class="col-md-8">
               <div class="row">

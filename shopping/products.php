@@ -56,7 +56,7 @@
             <tr>
                 <td><?php echo '<img src='.$row['picture'].' width="50" height="50">'?></td>
                 <td><?php echo $row['name'] ?></td> 
-                <td><?php echo $row['description'] ?></td> 
+                <td><?php echo $row['description'] ?></td>          
                 <td>$<?php echo $row['price'] ?></td> 
                 <td><a class="cart_a" href="index.php?page=products&action=add&id=<?php echo $row['id'] ?>">Добавить</a></td> 
             </tr> 

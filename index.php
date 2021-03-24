@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<?php
+require ("shopping/connection.php");
+if (isset($_GET['page'])){
+$pages=array("products", "cart");
+      if (in_array($_GET['page'],$pages)){
+$_page=$_GET['page'];
+      }
+      else{
+$_page="products";
+    }
+} 
+else{
+  $_page="products";
+}
+?>
+<!DOCTYPE html>
 <html lang="ru">
    <meta http-equiv="Content-Type" content="text/html">
    <head>
@@ -52,10 +67,10 @@
                            <p class="d-flex align-items-center"><a href="mail:" class="contact-line-field"><i class="fas fa-envelope"></i>export@gretskiy.by</a></p>
                            <p class="d-flex align-items-center"><a href="tel:" class="contact-line-field url-phone"><i class="fas fa-phone"></i>+375 33 323 03 01</a></p>
                            <div class="phone-link d-flex">
-                              <a href="https://telegram.me/in"><i class="fab fa-telegram"> </i></a>
-                              <a href="https://wa.me/01"><i class="fab fa-whatsapp"></i></a>
-                              <a href="viber://chat?num301"><i class="fab fa-viber"> </i></a>
-                              <a href="https://www.instd1ma" target="_blank"><i class="fab fa-instagram"> </i></a>
+                              <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                            </div>
                         </div>
                      </div>
@@ -147,10 +162,10 @@
                                  <a href="mail:"><i class="fas fa-envelope"></i> export@gretsky.by</a>
                                </div>
                                <div class="mobile-social justify-content-center">
-                                 <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                                 <a href="viber://chat?number=" target="_blank"><i class="fab fa-viber"></i></a>
-                                 <a href="https://telegram.me/" target="_blank"><i class="fab fa-telegram"></i></a>
-                                 <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                                 <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                                </div>
                            </div>
                            <div class="ogamin-mobile-menu_bg"></div>
@@ -320,17 +335,28 @@
                   </div>
                </div>
                <div class="row" style="justify-content: center;">
+               <?php
+                            $sql="SELECT * FROM `product` ORDER BY name ASC"; 
+                            $query=mysqli_query($dbconnect,$sql); 
+                          ?>
+                          <?php
 
+                            while($row=mysqli_fetch_array($query))
+                            {
+                             
+                          ?>
                   <div class="col-12 col-sm-6 col-md-3">
-                     <a class="product-item d-flex flex-column align-items-center justify-content-center" href="product/fistashki1.php">
+                     <a class="product-item d-flex flex-column align-items-center justify-content-center" href="product/product_page.php">
                         <div class="categories-img">
-                           <img src="gretskiy/uploads/uploads/image/product/fistashki1_vnesh.png">
+                           <img src="gretskiy/<?php echo $row['picture'] ?>">
                         </div>
-                        <h2>Фисташки 1</h2>
+                        <h2><?php echo $row['name'] ?></h2>
                         <p>кайфовые)</p>
                      </a>
                   </div>
-                  
+                  <?php
+                          }
+                        ?>
                </div>
             </div>
          </div>
@@ -516,31 +542,31 @@
                      <p><a href="mail:exporiy.by" class="contact-line-field">export@gretskiy.by</a></p>
                   </div>
                   <div class="footer-social">
-                     <a class="round-icon-btn" href="https://wa.30301">
-                     <i class="fab fa-whatsapp"> </i>
+                     <a class="round-icon-btn" href="https://wa.me/375292682290">
+                       <i class="fab fa-whatsapp"> </i>
                      </a>
-                     <a class="round-icon-btn" href="https://viber://ch33230301">
-                     <i class="fab fa-viber"> </i>
+                     <a class="round-icon-btn" href="https://viber://chat?number=%2B375292682290">
+                       <i class="fab fa-viber"> </i>
                      </a>
-                     <a class="round-icon-btn" href="https://telema">
-                     <i class="fab fa-telegram"></i>
+                     <a class="round-icon-btn" href="https://telegram.me/?">
+                       <i class="fab fa-telegram"></i>
                      </a>
-                     <a class="round-icon-btn" href="https://www.instagrama" target="_blank">
-                     <i class="fab fa-instagram"></i>
+                     <a class="round-icon-btn" href="https://www.instagram.com/andreigritskevich/" target="_blank">
+                       <i class="fab fa-instagram"></i>
                      </a><br/>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk." target="_blank">
-                     <i class="fab fa-vk"></i>
+                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk.com/id90535597" target="_blank">
+                       <i class="fab fa-vk"></i>
                      </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwk.com/infi_d1ma" target="_blank">
-                     <i class="fab fa-facebook"></i>
+                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.facebook.com/?" target="_blank">
+                       <i class="fab fa-facebook"></i>
                      </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twiinfi_d1ma" target="_blank">
-                     <i class="fab fa-twitter"></i>
+                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twitter.com/?" target="_blank">
+                       <i class="fab fa-twitter"></i>
                      </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwwi_d1ma" target="_blank">
-                     <i class="fab fa-youtube"></i>
+                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.youtube.com/channel/?" target="_blank">
+                       <i class="fab fa-youtube"></i>
                      </a>
-                  </div>
+                     </div>
                </div>
                <div class="col-md-8">
                   <div class="row">

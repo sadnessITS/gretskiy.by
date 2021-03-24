@@ -48,10 +48,10 @@ else{
                            <p class="d-flex align-items-center"><a href="mail:" class="contact-line-field"><i class="fas fa-envelope"></i>export@gretskiy.by</a></p>
                            <p class="d-flex align-items-center"><a href="tel:" class="contact-line-field url-phone"><i class="fas fa-phone"></i>+375 33 323 03 01</a></p>
                            <div class="phone-link d-flex">
-                              <a href="https://telegram.me/in"><i class="fab fa-telegram"> </i></a>
-                              <a href="https://wa.me/01"><i class="fab fa-whatsapp"></i></a>
-                              <a href="viber://chat?num301"><i class="fab fa-viber"> </i></a>
-                              <a href="https://www.instd1ma" target="_blank"><i class="fab fa-instagram"> </i></a>
+                           <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                            </div>
                         </div>
                      </div>
@@ -143,10 +143,10 @@ else{
                                  <a href="mail:"><i class="fas fa-envelope"></i> export@gretsky.by</a>
                                </div>
                                <div class="mobile-social justify-content-center">
-                                 <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                                 <a href="viber://chat?number=" target="_blank"><i class="fab fa-viber"></i></a>
-                                 <a href="https://telegram.me/" target="_blank"><i class="fab fa-telegram"></i></a>
-                                 <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                               <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                              <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
+                              <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
+                              <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                                </div>
                            </div>
                            <div class="ogamin-mobile-menu_bg"></div>
@@ -208,7 +208,7 @@ else{
     <div id="container"> 
   
         <div id="main"> 
-           <?php require($_page.".php"); ?>
+           <?php require("cart.php"); ?>
         </div><!--end main-->
           
         <div id="sidebar"> 
@@ -223,12 +223,17 @@ else{
         { 
          
            $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];  
-           if ($temp_quantity) 
+           if ($temp_quantity!='') 
            {
-            ?>
-            <p class="cart_p"><?php echo $row['name'] ?> x <?php echo $temp_quantity?></p>
-            <?php
+           
+           
+        
+            echo '<p class="cart_p">'?>
+          <?php echo $row['name'] ?>  x <?php echo $temp_quantity?>
+          <?php echo '</p>';
+            
             }
+            
         }
             ?> 
         <hr style="width: 150px;" align="right"; /> 
@@ -257,31 +262,31 @@ else{
                      <p><a href="mail:exporiy.by" class="contact-line-field">export@gretskiy.by</a></p>
                   </div>
                   <div class="footer-social">
-                     <a class="round-icon-btn" href="https://wa.30301">
-                     <i class="fab fa-whatsapp"> </i>
-                     </a>
-                     <a class="round-icon-btn" href="https://viber://ch33230301">
-                     <i class="fab fa-viber"> </i>
-                     </a>
-                     <a class="round-icon-btn" href="https://telema">
-                     <i class="fab fa-telegram"></i>
-                     </a>
-                     <a class="round-icon-btn" href="https://www.instagrama" target="_blank">
-                     <i class="fab fa-instagram"></i>
-                     </a><br/>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk." target="_blank">
-                     <i class="fab fa-vk"></i>
-                     </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwk.com/infi_d1ma" target="_blank">
-                     <i class="fab fa-facebook"></i>
-                     </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twiinfi_d1ma" target="_blank">
-                     <i class="fab fa-twitter"></i>
-                     </a>
-                     <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://wwwi_d1ma" target="_blank">
-                     <i class="fab fa-youtube"></i>
-                     </a>
-                  </div>
+                <a class="round-icon-btn" href="https://wa.me/375292682290">
+                  <i class="fab fa-whatsapp"> </i>
+                </a>
+                <a class="round-icon-btn" href="https://viber://chat?number=%2B375292682290">
+                  <i class="fab fa-viber"> </i>
+                </a>
+                <a class="round-icon-btn" href="https://telegram.me/?">
+                  <i class="fab fa-telegram"></i>
+                </a>
+                <a class="round-icon-btn" href="https://www.instagram.com/andreigritskevich/" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a><br/>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://vk.com/id90535597" target="_blank">
+                  <i class="fab fa-vk"></i>
+                </a>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.facebook.com/?" target="_blank">
+                  <i class="fab fa-facebook"></i>
+                </a>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://twitter.com/?" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a class="round-icon-btn" style="margin-top: 0.5em;" href="https://www.youtube.com/channel/?" target="_blank">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                </div>
                </div>
                <div class="col-md-8">
                   <div class="row">
