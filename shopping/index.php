@@ -69,7 +69,7 @@ else{
                <div class="container">
                   <div class="row">
                      <div class="col-2">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="index.php">
                            <img src="../gretskiy/static/images/logov2.png" width="150px"alt="">
                         </a>
                      </div>
@@ -77,7 +77,7 @@ else{
                         <div class="navgition-menu d-flex align-items-center justify-content-center">
                            <ul class="mb-0">
                               <li class="toggleable">
-                                 <a class="menu-item" href="../index.html">Главная</a>
+                                 <a class="menu-item" href="../index.php">Главная</a>
                               </li>
                               <li class="toggleable">
                                  <a class="menu-item" href="../catalog/all.php">Продукция</a>
@@ -113,7 +113,7 @@ else{
                               <div class="mobile-menu_items">
                                  <ul class="mb-0 d-flex flex-column">
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../index.html">Главная</a>
+                                       <a class="menu-item" href="../index.php">Главная</a>
                                     </li>
                                     <li class="toggleable">
                                        <a class="menu-item" href="../catalog/all.php">Продукция</a>
@@ -153,7 +153,7 @@ else{
                         </div>
                      </div>
                      <div class="col-6">
-                        <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.html"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
+                        <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.php"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
                      </div>
                      <div class="col-3">
                         <div class="mobile-product_function d-flex align-items-center justify-content-end">
@@ -293,7 +293,7 @@ else{
                      <div class="col-12 col-sm-4 text-sm-center text-md-left">
                         <div class="footer-quicklink">
                            <h5>Карта сайта</h5>
-                           <a href="../index.html">Главная</a>
+                           <a href="../index.php">Главная</a>
                            <a href="../catalog/all.php">Продукция</a>
                            <a href="../about_company.html">О компании</a>
                            <a href="../blog.html">Новости</a>

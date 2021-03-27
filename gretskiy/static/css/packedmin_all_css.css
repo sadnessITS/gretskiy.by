@@ -3364,7 +3364,7 @@ header .navigation-filter .phone-number h2 {
 }
 
 .items-category .product-item:hover img {
-	animation: mymove 1s infinite
+	animation: mymove 1s infinite;
 }
 
 .items-category .product-item:hover {
@@ -3653,7 +3653,7 @@ header .navigation-filter .phone-number h2 {
 }
 
 .banner-group .large-banner:hover img {
-	animation: mymove 1s infinite
+	animation: mymove 1s infinite;
 }
 
 .banner-group .large-banner {

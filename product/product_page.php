@@ -50,7 +50,7 @@ $id_=(int)$zxc;
     <meta property="og:title" content="Фермерское хозяйство “Грицкевичей” в широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">    
     <meta property="og:type" content="website">    
     <meta property="og:image" content="../gretskiy/static/images/logo.svg">            
-    <meta property="og:url" content="../index.html">    
+    <meta property="og:url" content="../index.php">    
     <meta property="og:description" content="ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy, Vitae. В широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -99,13 +99,13 @@ $id_=(int)$zxc;
           <div class="container">
             <div class="row">
               <div class="col-2">
-                <a class="logo" href="../index.html"><img src="../gretskiy/static/images/logov2.png" width='150px' alt=""></a>
+                <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logov2.png" width='150px' alt=""></a>
               </div>
               <div class="col-8">
                 <div class="navgition-menu d-flex align-items-center justify-content-center">
                   <ul class="mb-0">
                     <li class="toggleable">
-                    <a class="menu-item" href="../index.html">Главная</a>
+                    <a class="menu-item" href="../index.php">Главная</a>
                     </li>
                     <li class="toggleable">
                       <a class="menu-item" href="../catalog/all.php">Продукция</a>
@@ -140,7 +140,7 @@ $id_=(int)$zxc;
                     <div class="mobile-menu_items">
                       <ul class="mb-0 d-flex flex-column">
                         <li class="toggleable">
-                          <a class="menu-item" href="../index.html">Главная</a>
+                          <a class="menu-item" href="../index.php">Главная</a>
                         </li>
                         <li class="toggleable">
                           <a class="menu-item" href="../catalog/all.php">Продукция</a>
@@ -182,7 +182,7 @@ $id_=(int)$zxc;
                 </div>
               </div>
               <div class="col-6">
-                <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.html"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
+                <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.php"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
               </div>
               <div class="col-3">
                 <div class="mobile-product_function d-flex align-items-center justify-content-end">
@@ -238,7 +238,7 @@ $id_=(int)$zxc;
       <div class="ogami-breadcrumb">
         <div class="container">
           <ul>
-            <li> <a class="breadcrumb-link" href="../index.html"> <i class="fas fa-home"></i>Главная</a></li>
+            <li> <a class="breadcrumb-link" href="../index.php"> <i class="fas fa-home"></i>Главная</a></li>
             <li> <a class="breadcrumb-link" href="../catalog/all.php">Продукция</a></li>
             <li> <a class="breadcrumb-link" href="../catalog/fistashki.php"><?php echo $row['type']?></a></li>
             <li> <a class="breadcrumb-link active"><?php echo $row['name']?></a></li>
@@ -440,7 +440,7 @@ $id_=(int)$zxc;
                 <div class="col-12 col-sm-4 text-sm-center text-md-left">
                     <div class="footer-quicklink">
                        <h5>Карта сайта</h5>
-                       <a href="../index.html">Главная</a>
+                       <a href="../index.php">Главная</a>
                        <a href="../catalog/all.php">Продукция</a>
                        <a href="../about_company.html">О компании</a>
                        <a href="../blog.html">Новости</a>
