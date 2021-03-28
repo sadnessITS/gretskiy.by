@@ -36,6 +36,59 @@ require "db.php"; // подключаем файл для соединения �
    <a href="signup.php">Регистрация</a>
    <?php endif; ?>
 
+   <table border='1'>
+      <tr>
+         <td>Идентификатор</td>
+         <td>Цифровое обозначение вида</td>
+         <td>Вид ореха</td>
+         <td>Краткое описание</td>
+         <td>Полное описание</td>
+         <td>Цена</td>
+         <td>Размер упаковки</td>
+         <td>Вес упаковки</td>
+         <td>Срок годности</td>
+         <td>Файл-картинка</td>
+         <td>Обжарен ли орех</td>
+         <td>Дата добавления</td>
+      </tr>
+      
+      <?php
+		$query = R::getAll( 'SELECT * FROM product' );
+        foreach($query as $item):
+			echo 'ID: ' . $item['id'] . '<br>';
+			echo 'ID: ' . $item['name'] . '<br>';
+			echo 'ID: ' . $item['type_n'] . '<br>';
+			echo 'ID: ' . $item['type'] . '<br>';
+			echo 'ID: ' . $item['description'] . '<br>';
+			echo 'ID: ' . $item['full_description'] . '<br>';
+			echo 'ID: ' . $item['price'] . '<br>';
+			echo 'ID: ' . $item['size'] . '<br>';
+			echo 'ID: ' . $item['weight'] . '<br>';
+			echo 'ID: ' . $item['shelf_life'] . '<br>';
+			echo 'ID: ' . $item['picture'] . '<br>';
+			echo 'ID: ' . $item['if_fried'] . '<br>';
+			echo 'ID: ' . $item['date_if_introduction'] . '<br>';
+		endforeach;
+    	?>
+
+<tr>
+				<td><?=$item['id']?></td>
+				<td><?=$item['name']?></td>
+				<td><?=$item['type_n']?></td>
+				<td><?=$item['type']?></td>
+				<td><?=$item['description']?></td>
+				<td><?=$item['full_description']?></td>
+				<td><?=$item['price']?></td>
+				<td><?=$item['size']?></td>
+				<td><?=$item['weight']?></td>
+				<td><?=$item['shelf_life']?></td>
+				<td><?=$item['picture']?></td>
+				<td><?=$item['if_fried']?></td>
+				<td><?=$item['date_if_introduction']?></td>
+			</tr>
+
+</table>
+
    <?php require __DIR__ . '/footer.php'; ?> <!-- Подключаем подвал проекта -->
 </body>
 </html>
