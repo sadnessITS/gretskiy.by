@@ -1,4 +1,7 @@
 ﻿<?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
 require ("shopping/connection.php");
 if (isset($_GET['page'])){
 $pages=array("products", "cart");

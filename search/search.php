@@ -179,7 +179,7 @@ else{
                     <a class="menu-item" href="../index.php">Главная</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="../all.php">Продукция</a>
+                      <a class="menu-item" href="../catalog/all.php">Продукция</a>
                     </li>
                     <li class="toggleable">
                       <a class="menu-item" href="../about_company.html">О компании</a>
