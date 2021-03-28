@@ -208,7 +208,7 @@ else{
                                  <div class="col-4 col-md-4 col-lg-3 col-xl-2" style="padding-left: 0; padding-right:0;">
                                     <button class="no-round-btn">Поиск</button>
                                  </div>
-                              </form>
+                  </form>
                   </div>
                 </div>
               </div>
