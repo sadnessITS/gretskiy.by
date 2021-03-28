@@ -184,6 +184,15 @@ if(isset($data['add_product'])) {
 	<title>Document</title>
 </head>
 <body>
+
+<?php if(isset($_SESSION['logged_user'])) : ?>
+      Привет, <?php echo $_SESSION['logged_user']->name; ?></br>
+
+   <!-- Пользователь может нажать выйти для выхода из системы -->
+   <a href="logout.php">Выйти</a>
+   <?php else : header('Location: login.php')?>
+   <?php endif; ?>
+
 <div class="container mt-4">
 		<div class="row">
 			<div class="col">

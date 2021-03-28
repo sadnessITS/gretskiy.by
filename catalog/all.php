@@ -1,4 +1,5 @@
 ﻿<?php
+session_start();
 require ("../shopping/connection.php");
 if (isset($_GET['page'])){
 $pages=array("products", "cart");
@@ -12,6 +13,7 @@ $_page="products";
 else{
   $_page="products";
 }
+
 
     ?>
 <!DOCTYPE html>
@@ -109,7 +111,7 @@ else{
               </div>
               <div class="col-2">
                 <div class="product-function d-flex align-items-center justify-content-end">
-                  <div id="cart"><a class="function-icon icon_bag_alt" href="../shopping/index.php"><span>ЗАКАЗАТЬ</span></a></div>
+                  <div id="cart"><?php if ( $_SESSION['totalq'] >0){ echo '*  ';}   ?><a class="function-icon icon_bag_alt" href="../shopping/index.php"><span> ЗАКАЗАТЬ</span></a></div>
                 </div>
               </div>
             </div>
@@ -347,13 +349,12 @@ else{
   } 
 
 ?> 
-                            
-                           <a class="cart_a" href="all.php?page=all&action=add&id=<?php echo $row['id'] ?>"><button class="round-icon-btn" >Заказать</button></a>
+        <form class="cart_a" action="../shopping/index.php?page=all&action=add&id=<?php echo $row['id'] ?>" method="POST"><button class="round-icon-btn" >Заказать</button></form>
                           </div>
                           <div class="product-select_list">
                             <p class="delivery-status"><?php echo $row['type'] ?></p>
                             
-                            <a href="../shopping/index.php"><button class="normal-btn" >Заказать</button></a>
+                            <form class="cart_a" action="../shopping/index.php?page=all&action=add&id=<?php echo $row['id'] ?>" method="POST"><button class="round-icon-btn" >Заказать</button></form>
                           </div>
                         </div>
                       </div>
