@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
 session_start();
 require ("connection.php");
 if (isset($_GET['page'])){
@@ -215,7 +218,8 @@ else{
           <h1>Заказ</h1> 
           
 <?php 
-  
+
+
     if(isset($_SESSION['cart'])){ 
        $sql="SELECT * FROM `product` ORDER BY name ASC";
              $query=mysqli_query($dbconnect, $sql);
@@ -231,7 +235,7 @@ else{
             echo '<p class="cart_p">'?>
           <?php echo $row['name'] ?>  x <?php echo $temp_quantity?>
           <?php echo '</p>';
-            
+            $_SESSION['totalq']= $temp_quantity;
             }
             
         }
@@ -247,6 +251,7 @@ else{
         echo "<p>Ваша корзина пуста.</p>"; 
           
     } 
+    
   
 ?>
         </div><!--end sidebar-->

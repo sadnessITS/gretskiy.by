@@ -318,7 +318,7 @@ $id_=(int)$zxc;
                       </div>
                       
                       <div class="product-select">
-                        <button class=" normal-btn outline" href="../shopping/index.php">Заказать</button>
+                      <form class="cart_a" action="../shopping/index.php?page=../product/product_page&action=add&id=<?php echo $row['id'] ?>" method="POST"><button class=" normal-btn outline" >Заказать</button></form>
                       </div>
                     </div>
                   </div>
