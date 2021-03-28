@@ -86,7 +86,7 @@ else{
           <div class="container">
             <div class="row">
               <div class="col-2">
-                <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logov2.png" width="150px" alt=""></a>
+                <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logoV2.png" width="150px" alt=""></a>
               </div> 
               <div class="col-8">
                 <div class="navgition-menu d-flex align-items-center justify-content-center">

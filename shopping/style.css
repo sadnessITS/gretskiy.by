@@ -34,10 +34,10 @@ body {
   
     #main { 
         width: 912px; 
-        overflow: scroll;
         float: left; 
     } 
   #main table {
+    overflow: scroll;
     border: none;
     margin-top: 5px;
     width: 100%;

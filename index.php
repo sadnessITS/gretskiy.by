@@ -92,7 +92,7 @@ else{
                   <div class="row">
                      <div class="col-2">
                         <a class="logo" href="index.php">
-                           <img src="gretskiy/static/images/logov2.png" width="150px"alt="">
+                           <img src='gretskiy/static/images/logoV2.png' width="150px">
                         </a>
                      </div>
                      <div class="col-8">
@@ -111,7 +111,7 @@ else{
                                  <a class="menu-item" href="blog.php">Новости</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="contact.html">Контакты</a>
+                                 <a class="menu-item" href="contact.php">Контакты</a>
                               </li>
                            </ul>
                         </div>
@@ -147,7 +147,7 @@ else{
                                        <a class="menu-item" href="blog.php">Новости</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="contact.html">Контакты</a>
+                                       <a class="menu-item" href="contact.php">Контакты</a>
                                     </li>
                                     <!--<li class="toggleable"> </li>
                                        <li class="toggleable"><a class="menu-item" href="#">Пример вложенности</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
@@ -585,7 +585,7 @@ else{
                            <a href="catalog/all.php">Продукция</a>
                            <a href="about_company.php">О компании</a>
                            <a href="blog.php">Новости</a>
-                           <a href="contact.html">Контакты</a>
+                           <a href="contact.php">Контакты</a>
                         </div>
                      </div>
                      <div class="col-12 col-sm-4 text-sm-center text-md-left">

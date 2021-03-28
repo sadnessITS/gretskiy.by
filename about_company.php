@@ -37,7 +37,7 @@ else{
       <meta property="og:locale" content="ru_RU">
       <meta property="og:title" content="Фермерское хозяйство “Грицкевичей” в широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
       <meta property="og:type" content="website">
-      <meta property="og:image" content="gretskiy/static/images/logov2.png">
+      <meta property="og:image" content="gretskiy/static/images/logoV2.png">
       <meta property="og:url" content="index.php">
       <meta property="og:description" content="ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy. В широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
       <!-- Google Tag Manager -->
@@ -92,7 +92,7 @@ else{
                <div class="container">
                   <div class="row">
                      <div class="col-2">
-                        <a class="logo" href="index.php"><img src="gretskiy/static/images/logov2.png" width='150px' alt=""></a>
+                        <a class="logo" href="index.php"><img src="gretskiy/static/images/logoV2.png" width='150px' alt=""></a>
                      </div>
                      <div class="col-8">
                         <div class="navgition-menu d-flex align-items-center justify-content-center">
@@ -598,7 +598,7 @@ else{
          "name": "ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy, Vitae",
          "legalName" : "ФХ “Грицкевичей",
          "url": "https://gretskiy.by/",
-         "logo": "https://gretskiy.by/gretskiy/static/images/logov2.png",
+         "logo": "https://gretskiy.by/gretskiy/static/images/logoV2.png",
          "foundingDate": "2001",
          "address": {
           "@type": "PostalAddress",
