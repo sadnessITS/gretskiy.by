@@ -285,7 +285,7 @@ else{
               <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
                 <div class="website-search">
                   <div class="row no-gutters">
-                  <form style="display: flex; width:100%;" name="search" action="search/search.php" method="post">
+                  <form style="display: flex; width:100%;" name="search" action="search.php" method="post">
                                  <div class="col-8 col-md-8 col-lg-9 col-xl-10" style="padding-left: 0; padding-right:0;">
                                     <div class="search-input">
                                        <input class="no-round-input no-border" name="query" type="search" placeholder="Что хотите искать?">
