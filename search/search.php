@@ -1,4 +1,90 @@
-﻿<?php
+<?php 
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'web');
+
+if (!mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME)) {
+    exit('Cannot connect to server');
+}
+$connect = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+mysqli_query($connect,'SET NAMES utf8');
+
+function search_name ($query) 
+{ 
+    $connect = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $query = trim($query); 
+    $query = mysqli_real_escape_string($connect, $query);
+    $query = htmlspecialchars($query);
+
+    if (!empty($query)) 
+    { 
+        if (strlen($query) < 3) {
+            $text = '<p>Слишком короткий поисковый запрос.</p>';
+        } else if (strlen($query) > 128) {
+            $text = '<p>Слишком длинный поисковый запрос.</p>';
+        } else { 
+            $q = "SELECT *
+                  FROM `product` WHERE `description` LIKE '%$query%'
+                  OR `name` LIKE '%$query%'
+                  OR `type` LIKE '%$query%'";
+
+            $result = mysqli_query($connect, $q);
+
+            if (mysqli_affected_rows($connect) > 0) { 
+                $row = mysqli_fetch_assoc($result); 
+                $num = mysqli_num_rows($result);
+$text='';
+
+                do {
+                    // Делаем запрос, получающий ссылки на статьи
+                    $q1 = "SELECT * FROM `product` WHERE 'id' = '$row[id]'";
+                    $result1 = mysqli_query($connect, $q1);
+
+                    if (mysqli_affected_rows($connect) > 0) {
+                        $row1 = mysqli_fetch_assoc($result1);
+                    }
+                    $text .= ' <div class="col-6 col-md-4">
+                    <div style="justify-content: left;">
+                    <div class="product">
+                      <div class="product-img_block">
+                      <a class="product-img" href="../product/product_page.php?'.$row['id'].'">
+                        <img src='.$row['picture'].'>
+                        </a>
+                      </div>
+                      
+                      <div class="product-info_block">
+                        <h5 class="product-type" align="center">'.$row['type'].'</h5><a class="product-name" href="../product/product_page.php?'.$row['id'].'">'.$row['name'].'</a>
+                        <p class="product-describe"><?php echo '.$row['description'].' ?></p>
+                        <h5 class="product-avaiable">Вес продукта: <span>'.$row['weight'].'</span></h5>
+                      </div>
+                      <div class="product-select">
+                    <a class="cart_a" href="../shopping/index.php?page=all&action=add&id='.$row['id'].'"><button class="round-icon-btn" >Заказать</button></a>
+                    </div>
+                    <div class="product-select_list">
+                      <p class="delivery-status">'.$row['type'].'</p>
+                      
+                      <a href="../shopping/index.php"><button class="normal-btn" >Заказать</button></a>
+                    </div>
+                  </div>
+                </div>
+                </div>';
+
+
+                } while ($row = mysqli_fetch_assoc($result)); 
+            } else {
+                $text = '<p>По вашему запросу ничего не найдено.</p>';
+            }
+        } 
+    } else {
+        $text = '<p>Задан пустой поисковый запрос.</p>';
+    }
+
+    return $text; 
+} 
+
+?>
+<?php
 require ("../shopping/connection.php");
 if (isset($_GET['page'])){
 $pages=array("products", "cart");
@@ -12,14 +98,14 @@ $_page="products";
 else{
   $_page="products";
 }
-?>
+
+    ?>
 <!DOCTYPE html>
-<html lang="ru">
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html lang="ru"><meta http-equiv="content-type" content="text/html;" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-    <title>Продукция - ФХ “Грицкевичей”, Gretsky</title>
+    <title>Продукция - ФХ “Грицкевичей”, Gretskiy</title>
     <meta name="description" content="Фермерское хозяйство “Грицкевичей” в широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
     <meta name="keywords" content="">
     <link rel="preload" href="../gretskiy/static/fonts/ElegantIcons.woff" as="font" type="font/woff" crossorigin>
@@ -34,7 +120,7 @@ else{
     <meta property="og:locale" content="ru_RU">    
     <meta property="og:title" content="Фермерское хозяйство “Грицкевичей” в широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">    
     <meta property="og:type" content="website">    
-    <meta property="og:image" content="../gretskiy/static/images/logo.svg">            
+    <meta property="og:image" content="../gretskiy/static/images/logov2.png width='150px'">            
     <meta property="og:url" content="../index.php">    
     <meta property="og:description" content="ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy, Vitae. В широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
     <!-- Google Tag Manager -->
@@ -60,15 +146,15 @@ else{
             <div class="row">
               <div class="col-12 col-md-8">
                 <div class="header-left d-flex flex-column flex-md-row align-items-center">
-                  <p class="d-flex align-items-center"><a href="mail:" class="contact-line-field"><i class="fas fa-envelope"></i>export@gretskiy.by</a></p>
-                  <p class="d-flex align-items-center"><a href="tel:" class="contact-line-field url-phone"><i class="fas fa-phone"></i>+375 33 323 03 01</a></p>
-                    <div class="phone-link d-flex">
-                    <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
+                  <p class="d-flex align-items-center"><a href="mail:export@gretskiy.by" class="contact-line-field"><i class="fas fa-envelope"></i>export@gretskiy.by</a></p>
+                  <p class="d-flex align-items-center"><a href="tel:+375333230401" class="contact-line-field url-phone"><i class="fas fa-phone"></i>+375 33 323 03 01</a></p>
+                  <div class="phone-link d-flex">
+                  <a href="https://telegram.me/?"><i class="fab fa-telegram"> </i></a>
                               <a href="https://wa.me/375292682290"><i class="fab fa-whatsapp"></i></a>
                               <a href="https://viber://chat?number=%2B375292682290"><i class="fab fa-viber"> </i></a>
                               <a href="https://www.instagram.com/andreigritskevich/" target="_blank"><i class="fab fa-instagram"> </i></a>
                   </div>
-                </div>
+               </div>
               </div>
               <div class="col-12 col-md-4">
                 <div class="header-right d-flex flex-column flex-md-row justify-content-md-end justify-content-center align-items-center">
@@ -84,8 +170,8 @@ else{
           <div class="container">
             <div class="row">
               <div class="col-2">
-                <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logov2.png" width="150px" alt=""></a>
-              </div> 
+                <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logov2.png" width='150px' alt=""></a>
+              </div>
               <div class="col-8">
                 <div class="navgition-menu d-flex align-items-center justify-content-center">
                   <ul class="mb-0">
@@ -93,7 +179,7 @@ else{
                     <a class="menu-item" href="../index.php">Главная</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="all.php">Продукция</a>
+                      <a class="menu-item" href="../all.php">Продукция</a>
                     </li>
                     <li class="toggleable">
                       <a class="menu-item" href="../about_company.html">О компании</a>
@@ -128,7 +214,7 @@ else{
                           <a class="menu-item" href="../index.php">Главная</a>
                         </li>
                         <li class="toggleable">
-                          <a class="menu-item" href="all.php">Продукция</a>
+                          <a class="menu-item" href="../catalog/all.php">Продукция</a>
                         </li>
                         <li class="toggleable">
                           <a class="menu-item" href="../about_company.html">О компании</a>
@@ -185,21 +271,21 @@ else{
                   <div class="department-dropdown-menu" style="display: none;">
                     <ul>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
-                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
-                      <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                      <li><a href="../catalog/fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="../catalog/funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
+                      <li><a href="../catalog/gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="../catalog/mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
-                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
-</ul>
+                      <li><a href="../catalog/obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="../catalog/obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                   </ul>
                   </div>
                </div>
               </div>
               <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
                 <div class="website-search">
                   <div class="row no-gutters">
-                    <form style="display: flex; width:100%;" name="search" action="../search/search.php" method="post">
+                  <form style="display: flex; width:100%;" name="search" action="search.php" method="post">
                                  <div class="col-8 col-md-8 col-lg-9 col-xl-10" style="padding-left: 0; padding-right:0;">
                                     <div class="search-input">
                                        <input class="no-round-input no-border" name="query" type="search" placeholder="Что хотите искать?">
@@ -223,8 +309,7 @@ else{
         <div class="container">
           <ul>
             <li> <a class="breadcrumb-link" href="../index.php"> <i class="fas fa-home"></i>Главная</a></li>
-            <li> <a class="breadcrumb-link" href="all.php">Продукция</a></li>
-            <li> <a class="breadcrumb-link active">Грецкий орех</a></li>
+            <li> <a class="breadcrumb-link active">Продукция</a></li>
           </ul>
         </div>
       </div>
@@ -242,10 +327,10 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li> <a class="department-link" href="fistashki.php">Фисташки</a></li>
-      <li> <a class="department-link" href="funduk.php">Фундук</a></li>
-      <li> <a class="department-link" href="gretskiy_oreh.php">Грецкий орех</a></li>
-      <li> <a class="department-link" href="mindal.php">Миндаль</a></li>
+      <li> <a class="department-link" href="../catalog/fistashki.php">Фисташки</a></li>
+      <li> <a class="department-link" href="../catalog/funduk.php">Фундук</a></li>
+      <li> <a class="department-link" href="../catalog/gretskiy_oreh.php">Грецкий орех</a></li>
+      <li> <a class="department-link" href="../catalog/mindal.php">Миндаль</a></li>
     </ul>
   </div>
 </div>
@@ -255,8 +340,8 @@ else{
   </div>
   <div class="department_bottom">
     <ul>
-      <li><a class="department-link" href="obzh_lesnoy.php">Фундук</a></li>
-      <li><a class="department-link" href="obzh_fistashki.php">Фисташки</a></li>
+      <li><a class="department-link" href="../catalog/obzh_lesnoy.php">Фундук</a></li>
+      <li><a class="department-link" href="../catalog/obzh_fistashki.php">Фисташки</a></li>
     </ul>
   </div>
 </div>
@@ -289,46 +374,13 @@ else{
                   </div>
                   <div class="shop-products_bottom">
                     <div class="row no-gutters-sm">
-                      <?php
-                      $sql="SELECT * FROM `product` WHERE `type_n` = 1 ORDER BY name ASC"; 
-                      $query=mysqli_query($dbconnect, $sql); 
-                    ?>
-                  <?php
-                  while($row=mysqli_fetch_array($query))
-                  {
-                  ?>
-                  <div class="col-6 col-md-4">
-                    <div class="product">
-                      <div class="product-img_block">
-                        <a class="product-img" href="../product/product_page.php?<?php echo $row['id'] ?>">
-                        <?php echo '<img src='.$row['picture'].'>'?>
-                          </a>
-                      </div>
-                      <div class="product-info_block">
-                          <h5 class="product-type" align="center"><?php echo $row['type'] ?></h5>
-                          <a class="product-name" href="../product/product_page.php?<?php echo $row['id'] ?>">
-                            <?php echo $row['name'] ?>
-                          </a>
-                            <p class="product-describe"><?php echo $row['description'] ?></p>
-                            <h5 class="product-avaiable">Вес продукта: <span><?php echo $row['weight'] ?></span></h5>
-                      </div>
-                      <div class="product-select">
-                      <a href="../shopping/index.php"><button class="round-icon-btn" >Заказать</button></a>
-                          </div>
-                          <div class="product-select_list">
-                            <p class="delivery-status"><?php echo $row['type'] ?></p>
-                            
-                            <a href="../shopping/index.php"><button class="normal-btn" >Заказать</button></a>
-                      </div>
-                    </div>
-                  </div>
-                    <?php 
-                            } 
-                    ?>
-                    </div>
-                  </div>
-                  <div class="shop-pagination">
-                    
+<?php 
+
+    $search_result = search_name ($_POST['query']); 
+    echo $search_result; 
+
+?>
+</div>
                   </div>
                 </div>
               </div>
@@ -357,15 +409,15 @@ else{
       <!-- -->
       <footer>
         <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left">
-              <div class="footer-logo"><img src="../gretskiy/static/images/logo.png" alt=""></div>
-              <div class="footer-contact">
-                <p>228322, пгт.Орешковичи, ул. Независимости, 4А область, Республика Крым.</p>
-                <p><a href="tel:+37530301" class="contact-line-field url-phone">+375 33 323 03 01</a></p>
-                <p><a href="mail:exporiy.by" class="contact-line-field">export@gretskiy.by</a></p>
-             </div>
-             <div class="footer-social">
+           <div class="row">
+              <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left">
+                 <div class="footer-logo"><img src="../gretskiy/static/images/logo.png" alt=""></div>
+                 <div class="footer-contact">
+                    <p>228322, пгт.Орешковичи, ул. Независимости, 4А область, Республика Крым.</p>
+                    <p><a href="tel:+37530301" class="contact-line-field url-phone">+375 33 323 03 01</a></p>
+                    <p><a href="mail:exporiy.by" class="contact-line-field">export@gretskiy.by</a></p>
+                 </div>
+                 <div class="footer-social">
                 <a class="round-icon-btn" href="https://wa.me/375292682290">
                   <i class="fab fa-whatsapp"> </i>
                 </a>
@@ -391,81 +443,83 @@ else{
                   <i class="fab fa-youtube"></i>
                 </a>
                 </div>
-            </div>
-            <div class="col-md-8">
-              <div class="row">
-                <div class="col-12 col-sm-4 text-sm-center text-md-left">
-                  <div class="footer-quicklink">
-                     <h5>Карта сайта</h5>
-                     <a href="../index.php">Главная</a>
-                     <a href="all.php">Продукция</a>
-                     <a href="../about_company.html">О компании</a>
-                     <a href="../blog.html">Новости</a>
-                     <a href="../contact.html">Контакты</a>
-                  </div>
-               </div>
-               <div class="col-12 col-sm-4 text-sm-center text-md-left">
+              </div>
+              <div class="col-md-8">
+                 <div class="row">
+                    <div class="col-12 col-sm-4 text-sm-center text-md-left">
+                       <div class="footer-quicklink">
+                          <h5>Карта сайта</h5>
+                          <a href="../catalog/index.php">Главная</a>
+                          <a href="../catalog/all.php">Продукция</a>
+                          <a href="../catalog/about_company.html">О компании</a>
+                          <a href="../catalog/blog.html">Новости</a>
+                          <a href="../catalog/contact.html">Контакты</a>
+                       </div>
+                    </div>
+                    <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Свежие орехи</h5>
-                          <a href="fistashki.php">Фисташки</a>
-                          <a href="funduk.php">Фундук</a>
-                          <a href="gretskiy_oreh.php">Грецкий орех</a>
-                          <a href="mindal.php">Миндаль</a>
+                          <a href="../catalog/fistashki.php">Фисташки</a>
+                          <a href="../catalog/funduk.php">Фундук</a>
+                          <a href="../catalog/gretskiy_oreh.php">Грецкий орех</a>
+                          <a href="../catalog/mindal.php">Миндаль</a>
                        </div>
                     </div>
                     <div class="col-12 col-sm-4 text-sm-center text-md-left">
                        <div class="footer-quicklink">
                           <h5>Обжаренные орехи</h5>
-                          <a href="obzh_lesnoy.php">Фундук</a>
-                          <a href="obzh_fistashki.php">Фисташки</a>
+                          <a href="../catalog/obzh_lesnoy.php">Фундук</a>
+                          <a href="../catalog/obzh_fistashki.php">Фисташки</a>
                        </div>
                     </div>
+                 </div>
               </div>
-            </div>
-          </div>
+           </div>
         </div>
         <div class="newletter">
-          <div class="container">
-            <div class="row justify-content-between align-items-center">
-              <div class="col-12 col-md-7">
-                <div class="newletter_text text-center text-md-left">
-                  <h5>Остались вопросы?</h5>
-                  <p>Оставьте свой номер, мы перезвоним и ответим на все ваши вопросы!</p>
-                </div>
+           <div class="container">
+              <div class="row justify-content-between align-items-center">
+                 <div class="col-12 col-md-7">
+                    <div class="newletter_text text-center text-md-left">
+                       <h5>Остались вопросы?</h5>
+                       <p>Оставьте свой номер, мы перезвоним и ответим на все ваши вопросы!</p>
+                    </div>
+                 </div>
+                 <div class="col-12 col-md-5">
+                    <div class="newletter_input">
+                       <form id="recoll_me" action="#" method="post">
+                          <input class="round-input" type="phone" name="phone" required placeholder="Ваш номер">
+                          <input type="hidden" name="csrfmiddlewaretoken" value="9S8Mcg2E5Nk04ejx2Hj5T15tVDFUzOeBovqGnhb13LmravMgVgf8tJQrXymUXKoj">
+                          <button>Перезвоните</button>
+                       </form>
+                    </div>
+                 </div>
               </div>
-              <div class="col-12 col-md-5">
-                <div class="newletter_input">
-                  <form id="recoll_me" action="#" method="post">
-                    <input class="round-input" type="phone" name="phone" required placeholder="Ваш номер">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="1KLlSptFbKvvGVPbrv1zJLa4QkMri0VNgn3f3qC29IxWMciUk4XCjtV2SftrGW5v">
-                    <button>Перезвоните</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
+           </div>
         </div>
         <div class="footer-credit">
-          <div class="container">
-            <div class="footer-creadit_block d-flex flex-column flex-md-row justify-content-start justify-content-md-between align-items-baseline align-items-md-center">
-              <p class="author">© 2020 Gretskiy | Фермерское хозяйство "Грицкевичей" | Все права защищены</p>
-            </div>
-          </div>
+           <div class="container">
+              <div class="footer-creadit_block d-flex flex-column flex-md-row justify-content-start justify-content-md-between align-items-baseline align-items-md-center">
+                 <p class="author">© 2021 Gretskiy | Фермерское хозяйство "Грицкевичей" | Все права защищены</p>
+              </div>
+           </div>
         </div>
         <div class="form-feedback" id="feedback-form">
-          <form id="f_contact" name="contact" action="#" method="post">
-            <h2>Оставить заявку</h2>
-            <input class="no-round-input mt-20" name="name" type="text" placeholder="Имя"><br>
-             <input class="no-round-input mt-20" name="phone" type="phone" required placeholder="Телефон"><br>
-             <input class="no-round-input mt-20" name="email" type="email" required placeholder="Email"><br>
-             <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea><br>
-            <input type="hidden" name="csrfmiddlewaretoken" value="1KLlSptFbKvvGVPbrv1zJLa4QkMri0VNgn3f3qC29IxWMciUk4XCjtV2SftrGW5v">
-             <button id="f_send" class="normal-btn mt-20">Отправить сообщение</button>
-          </form>
+           <form id="f_contact" name="contact" action="#" method="post">
+              <h2>Оставить заявку</h2>
+              <input class="no-round-input mt-20" name="name" type="text" placeholder="Имя"><br>
+              <input class="no-round-input mt-20" name="phone" type="phone" required placeholder="Телефон"><br>
+              <input class="no-round-input mt-20" name="email" type="email" required placeholder="Email"><br>
+              <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
+              <br>
+              <input type="hidden" name="csrfmiddlewaretoken" value="9S8Mcg2E5Nk04ejx2Hj5T15tVDFUzOeBovqGnhb13LmravMgVgf8tJQrXymUXKoj">
+              <button id="f_send" class="normal-btn mt-20">Отправить сообщение</button>
+           </form>
         </div>
-      </footer>
+     </footer>
       <!-- -->
     </div>
+    
     <script src="../gretskiy/static/js/packedmin.js"></script>
     <script>
 
@@ -485,7 +539,7 @@ else{
         "name": "ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy, Vitae",
         "legalName" : "ФХ “Грицкевичей",
         "url": "https://gretskiy.by/",
-        "logo": "https://gretskiy.by/gretskiy/static/images/logo.svg",
+        "logo": "https://gretskiy.by/gretskiy/static/images/logov2.png width='150px'",
         "foundingDate": "2001",
         "address": {
          "@type": "PostalAddress",
@@ -512,4 +566,5 @@ else{
     </script >
   
   </body>
+
 </html>

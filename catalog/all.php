@@ -201,17 +201,16 @@ else{
               <div class="col-12 col-md-8 col-lg-8 col-xl-9 order-1 order-md-2">
                 <div class="website-search">
                   <div class="row no-gutters">
-                    <form style="display: flex; width:100%;" action="http://gretskiy.by/search" method="post">
-                      <div class="col-8 col-md-8 col-lg-9 col-xl-10" style="padding-left: 0; padding-right:0;">
-                        <div class="search-input">
-                          <input class="no-round-input no-border" name="search" type="text" placeholder="Что хотите искать?">
-                        </div>
-                      </div>
-                      <div class="col-4 col-md-4 col-lg-3 col-xl-2" style="padding-left: 0; padding-right:0;">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="gnOz0eP0OMddJhyXMg5qfnPaqgaKMtQ9v06tbfYnMKfEPy1GFP1tP5A8sbRKap0R">
-                        <button class="no-round-btn">Поиск</button>
-                      </div>
-                    </form>
+                  <form style="display: flex; width:100%;" name="search" action="../search/search.php" method="post">
+                                 <div class="col-8 col-md-8 col-lg-9 col-xl-10" style="padding-left: 0; padding-right:0;">
+                                    <div class="search-input">
+                                       <input class="no-round-input no-border" name="query" type="search" placeholder="Что хотите искать?">
+                                    </div>
+                                 </div>
+                                 <div class="col-4 col-md-4 col-lg-3 col-xl-2" style="padding-left: 0; padding-right:0;">
+                                    <button class="no-round-btn">Поиск</button>
+                                 </div>
+                              </form>
                   </div>
                 </div>
               </div>
@@ -395,7 +394,7 @@ else{
         <div class="container">
            <div class="row">
               <div class="col-12 col-sm-12 col-md-4 text-sm-center text-md-left">
-                 <div class="footer-logo"><img src="gretskiy/static/images/logo.png" alt=""></div>
+                 <div class="footer-logo"><img src="../gretskiy/static/images/logo.png" alt=""></div>
                  <div class="footer-contact">
                     <p>228322, пгт.Орешковичи, ул. Независимости, 4А область, Республика Крым.</p>
                     <p><a href="tel:+37530301" class="contact-line-field url-phone">+375 33 323 03 01</a></p>

@@ -3,6 +3,14 @@ $title="Добавление продуктов"; // название формы
 require __DIR__ . '/header.php'; // подключаем шапку проекта
 require "db.php"; // подключаем файл для соединения с БД
 
+if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
+    //удаляем строку из таблицы
+
+	$id = $_GET['del_id'];
+    $delproduct = R::load('product', $id);
+    R::trash($delproduct);
+  }
+
 // Создаем переменную для сбора данных от пользователя по методу POST
 $data = $_POST;
 
@@ -95,7 +103,7 @@ if(isset($data['add_product'])) {
 		$data['picture'] .= $temp;
 	}
 
-	if($data['If_fried'] != '1' && $data['If_fried'] != '0') {
+	if($data['if_fried'] != '1' && $data['if_fried'] != '0') {
 
 		$errors[] = "Орех обжарен? (1/0)";
 	}
@@ -151,7 +159,7 @@ if(isset($data['add_product'])) {
 		$product->weight = $data['weight'];
 		$product->shelf_life = $data['shelf_life'];
 		$product->picture = $data['picture'];
-		$product->If_fried = $data['If_fried'];
+		$product->if_fried = $data['if_fried'];
 		$product->date_if_introduction = $data['date_if_introduction'];
 
 		// Сохраняем таблицу
@@ -172,9 +180,19 @@ if(isset($data['add_product'])) {
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style-product.css">
 	<title>Document</title>
 </head>
 <body>
+
+<?php if(isset($_SESSION['logged_user'])) : ?>
+      Привет, <?php echo $_SESSION['logged_user']->name; ?></br>
+
+   <!-- Пользователь может нажать выйти для выхода из системы -->
+   <a href="logout.php">Выйти</a>
+   <?php else : header('Location: login.php')?>
+   <?php endif; ?>
+
 <div class="container mt-4">
 		<div class="row">
 			<div class="col">
@@ -190,10 +208,55 @@ if(isset($data['add_product'])) {
 			<input type="text" class="form-control" name="weight" id="weight" placeholder="Введите вес упаковки"><br>
 			<input type="text" class="form-control" name="shelf_life" id="shelf_life" placeholder="Введите срок годности"><br>
 			<input type="text" class="form-control" name="picture" id="picture" placeholder="Название файла-картинки"><br>
-			<input type="text" class="form-control" name="If_fried" id="If_fried" placeholder="Орех обжарен? (1/0)"><br>
+			<input type="text" class="form-control" name="if_fried" id="if_fried" placeholder="Орех обжарен? (1/0)"><br>
 			<button class="btn btn-success" name="add_product" type="submit">Добавить</button>
 		</form>
 		<br>
+		
+		<?php
+		$query = R::getAll( 'SELECT * FROM product' );
+        foreach($query as $item):
+		?>
+
+		<table border='1px'>
+			<tr>
+				<td>Идентификатор (ID)</td>
+				<td>Название товара</td>
+				<td>ID вида</td>
+				<td>Вид ореха</td>
+				<td>Краткое описание</td>
+				<td>Полное описание</td>
+				<td>Цена</td>
+				<td>Размер упаковки</td>
+				<td>Вес упаковки</td>
+				<td>Срок годности</td>
+				<td>Файл-картинка</td>
+				<td>Обжарен ли орех</td>
+				<td>Дата добавления</td>
+				<td>Удалить запись</td>
+			</tr>
+			<tr>
+				<td><?=$item['id']?></td>
+				<td><?=$item['name']?></td>
+				<td><?=$item['type_n']?></td>
+				<td><?=$item['type']?></td>
+				<td><?=$item['description']?></td>
+				<td><?=$item['full_description']?></td>
+				<td><?=$item['price']?></td>
+				<td><?=$item['size']?></td>
+				<td><?=$item['weight']?></td>
+				<td><?=$item['shelf_life']?></td>
+				<td><?=$item['picture']?></td>
+				<td><?=$item['if_fried']?></td>
+				<td><?=$item['date_if_introduction']?></td>
+				<td><a href='?del_id=<?=$item['id']?>'>Удалить</a></td>
+			</tr>
+			
+		</table>
+
+		<?php endforeach; ?>
+		
+
 		<p>Вернуться на <a href="index.php">главную</a>.</p>
 			</div>
 		</div>
