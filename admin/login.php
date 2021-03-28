@@ -45,20 +45,33 @@ if(!empty($errors)) {
 }
 ?>
 
-<div class="container mt-4">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container mt-4">
 		<div class="row">
 			<div class="col">
-		<!-- Форма авторизации -->
-		<h2>Форма авторизации</h2>
-		<form action="login.php" method="post">
-			<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин" required><br>
-			<input type="password" class="form-control" name="password" id="pass" placeholder="Введите пароль" required><br>
-			<button class="btn btn-success" name="do_login" type="submit">Авторизоваться</button>
-		</form>
-		<br>
-		<p>Вернуться на <a href="index.php">главную</a>.</p>
+			<!-- Форма авторизации -->
+				<div><br>
+					<h2>Форма авторизации</h2>
+					<form action="login.php" method="post">
+						<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин" required><br>
+						<input type="password" class="form-control" name="password" id="pass" placeholder="Введите пароль" required><br>
+						<button class="btn btn-success" name="do_login" type="submit">Авторизоваться</button>
+					</form><br>
+				</div>
 			</div>
 		</div>
 	</div>
 
-<?php require __DIR__ . '/footer.php'; ?> <!-- Подключаем подвал проекта -->
+	<?php require __DIR__ . '/footer.php'; ?> <!-- Подключаем подвал проекта -->
+
+</body>
+</html>
+
