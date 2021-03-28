@@ -2,7 +2,6 @@
 ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
-session_start();
 require ("connection.php");
 if (isset($_GET['page'])){
 $pages=array("products", "cart");
@@ -86,20 +85,20 @@ else{
                                  <a class="menu-item" href="../catalog/all.php">Продукция</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../about_company.html">О компании</a>
+                                 <a class="menu-item" href="../about_company.php">О компании</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../blog.html">Новости</a>
+                                 <a class="menu-item" href="../blog.php">Новости</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../contact.html">Контакты</a>
+                                 <a class="menu-item" href="../contact.php">Контакты</a>
                               </li>
                            </ul>
                         </div>
                      </div>
                      <div class="col-2">
                         <div class="product-function d-flex align-items-center justify-content-end">
-                           <div id="cart"><a class="function-icon icon_bag_alt" href="index.php" ><span>ЗАКАЗАТЬ</span></a></div>
+                           <div id="cart"><?php if ( $_SESSION['totalq'] > 0){ echo '<i style="font-weight: bolder; color : red;">&bull;</i> ';}?><a class="function-icon icon_bag_alt" href="index.php" ><span>КОРЗИНА</span></a></div>
                         </div>
                      </div>
                   </div>
@@ -122,13 +121,13 @@ else{
                                        <a class="menu-item" href="../catalog/all.php">Продукция</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../about_company.html">О компании</a>
+                                       <a class="menu-item" href="../about_company.php">О компании</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../blog.html">Новости</a>
+                                       <a class="menu-item" href="../blog.php">Новости</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../contact.html">Контакты</a>
+                                       <a class="menu-item" href="../contact.php">Контакты</a>
                                     </li>
                                     <!--<li class="toggleable"> </li>
                                        <li class="toggleable"><a class="menu-item" href="#">Пример вложенности</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
@@ -160,6 +159,7 @@ else{
                      </div>
                      <div class="col-3">
                         <div class="mobile-product_function d-flex align-items-center justify-content-end">
+                        <?php if ( $_SESSION['totalq'] > 0){ echo '<i style="font-weight: bolder; color : red;">&bull;</i> ';}?>
                            <a class="function-icon icon_bag_alt" href="index.php"></a>
                         </div>
                      </div>
@@ -217,8 +217,7 @@ else{
           <h1>Заказ</h1> 
           
 <?php 
-
-
+   $_SESSION['totalq'] = '';
     if(isset($_SESSION['cart'])){ 
        $sql="SELECT * FROM `product` ORDER BY name ASC";
              $query=mysqli_query($dbconnect, $sql);
@@ -232,15 +231,14 @@ else{
            
         
             echo '<p class="cart_p">'?>
-          <?php echo $row['name'] ?>  x <?php echo $temp_quantity?>
+          <?php echo $row['name'] ?> x <?php echo $temp_quantity?>
           <?php echo '</p>';
-            $_SESSION['totalq']= $temp_quantity;
+            $_SESSION['totalq'] = $temp_quantity;
             }
             
         }
+        
             ?> 
-        <hr style="width: 150px;" align="right"; /> 
-        <a class="cart_a" href="index.php?page=cart">Перейти к корзине</a> 
     <?php 
           
     
@@ -299,9 +297,9 @@ else{
                            <h5>Карта сайта</h5>
                            <a href="../index.php">Главная</a>
                            <a href="../catalog/all.php">Продукция</a>
-                           <a href="../about_company.html">О компании</a>
-                           <a href="../blog.html">Новости</a>
-                           <a href="../contact.html">Контакты</a>
+                           <a href="../about_company.php">О компании</a>
+                           <a href="../blog.php">Новости</a>
+                           <a href="../contact.php">Контакты</a>
                         </div>
                      </div>
                      <div class="col-12 col-sm-4 text-sm-center text-md-left">

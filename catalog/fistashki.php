@@ -98,20 +98,20 @@ else{
                       <a class="menu-item" href="all.php">Продукция</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="../about_company.html">О компании</a>
+                      <a class="menu-item" href="../about_company.php">О компании</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="../blog.html">Новости</a>
+                      <a class="menu-item" href="../blog.php">Новости</a>
                     </li>
                     <li class="toggleable">
-                      <a class="menu-item" href="../contact.html">Контакты</a>
+                      <a class="menu-item" href="../contact.php">Контакты</a>
                     </li>
                   </ul>
                 </div>
               </div>
               <div class="col-2">
                 <div class="product-function d-flex align-items-center justify-content-end">
-                  <div id="cart"><a class="function-icon icon_bag_alt" href="../shopping/index.php"><span>ЗАКАЗАТЬ</span></a></div>
+                  <div id="cart"><?php if ( $_SESSION['totalq'] > 0){ echo '<i style="font-weight: bolder; color : red;">&bull;</i> ';}?><a class="function-icon icon_bag_alt" href="../shopping/index.php"><span>КОРЗИНА</span></a></div>
                 </div>
               </div>
             </div>
@@ -133,13 +133,13 @@ else{
                           <a class="menu-item" href="all.php">Продукция</a>
                         </li>
                         <li class="toggleable">
-                          <a class="menu-item" href="../about_company.html">О компании</a>
+                          <a class="menu-item" href="../about_company.php">О компании</a>
                         </li>
                         <li class="toggleable">
-                          <a class="menu-item" href="../blog.html">Новости</a>
+                          <a class="menu-item" href="../blog.php">Новости</a>
                         </li>
                         <li class="toggleable">
-                          <a class="menu-item" href="../contact.html">Контакты</a>
+                          <a class="menu-item" href="../contact.php">Контакты</a>
                         </li>
 
                         <!--<li class="toggleable"> </li>
@@ -173,6 +173,7 @@ else{
               </div>
               <div class="col-3">
                 <div class="mobile-product_function d-flex align-items-center justify-content-end">
+                <?php if ( $_SESSION['totalq'] > 0){ echo '<i style="font-weight: bolder; color : red;">&bull;</i> ';}?>
                 <a class="function-icon icon_bag_alt" href="../shopping/index.php"></a></div>
               </div>
             </div>
@@ -402,9 +403,9 @@ else{
                      <h5>Карта сайта</h5>
                      <a href="../index.php">Главная</a>
                      <a href="all.php">Продукция</a>
-                     <a href="../about_company.html">О компании</a>
-                     <a href="../blog.html">Новости</a>
-                     <a href="../contact.html">Контакты</a>
+                     <a href="../about_company.php">О компании</a>
+                     <a href="../blog.php">Новости</a>
+                     <a href="../contact.php">Контакты</a>
                   </div>
                </div>
                <div class="col-12 col-sm-4 text-sm-center text-md-left">

@@ -44,12 +44,13 @@ foreach($_POST['quantity'] as $key => $val) {
   
 }
 ?>
-<h1>Корзина <a class= "cart_a"href="index.php?page=products">Перейти к продуктам</a></h1>
+<h1>Корзина <a class= "cart_a" href="../catalog/all.php">Перейти к продуктам</a></h1>
 <form method="post" action="index.php?page=cart"> 
       
     <table> 
           
         <tr> 
+            <th>Картинка</th>
             <th>Название товара</th> 
             <th>Количество</th> 
             <th>Цена, $</th> 
@@ -68,6 +69,7 @@ foreach($_POST['quantity'] as $key => $val) {
                         $totalprice+=$subtotal; 	
                     ?> 
                         <tr> 
+                            <td><?php echo '<img src='.$rows['picture'].' width="50" height="50">'?></td>
                             <td><?php echo $rows['name'] ?></td> 
                             <td><input type="text" name="quantity[<?php echo $rows['id'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$rows['id']]['quantity'] ?>" /></td> 
                             <td>$<?php echo $rows['price'] ?></td> 

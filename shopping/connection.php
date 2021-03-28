@@ -1,4 +1,5 @@
 <?php
+session_start();
 $dbhost = "localhost"; // Имя хоста БД
 $dbusername = "root"; // Пользователь БД
 $dbpass = ""; // Пароль к базе

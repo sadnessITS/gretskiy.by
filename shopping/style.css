@@ -34,6 +34,7 @@ body {
   
     #main { 
         width: 912px; 
+        overflow: scroll;
         float: left; 
     } 
   #main table {
@@ -42,6 +43,7 @@ body {
     width: 100%;
   }
   #main table th{
+    
     font-size: 15px;
     font-family: 'Cera Pro Bold';
     padding:15px;
