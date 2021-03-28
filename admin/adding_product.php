@@ -100,7 +100,7 @@ if(isset($data['add_product'])) {
 		$errors[] = "Орех обжарен? (1/0)";
 	}
 
-	$data['If_fried'] = date("Y-m-d");
+	$data['date_if_introduction'] = date("Y-m-d");
 
          // функция mb_strlen - получает длину строки
         // Если логин будет меньше 5 символов и больше 90, то выйдет ошибка
@@ -152,7 +152,7 @@ if(isset($data['add_product'])) {
 		$product->shelf_life = $data['shelf_life'];
 		$product->picture = $data['picture'];
 		$product->If_fried = $data['If_fried'];
-		//$product->date_if_introduction = $data['date_if_introduction'];
+		$product->date_if_introduction = $data['date_if_introduction'];
 
 		// Сохраняем таблицу
 		R::store($product);
