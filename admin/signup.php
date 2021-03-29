@@ -122,39 +122,74 @@ if(isset($data['do_signup'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preload" href="../gretskiy/static/fonts/ElegantIcons.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Regular.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Medium.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Bold.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../gretskiy/static/css/packedmin_all_css.css">
 	<title>Document</title>
 </head>
 <body>
+<header>  
 
-<?php if(isset($_SESSION['logged_user'])) : ?>
-      Привет, <?php echo $_SESSION['logged_user']->name; ?></br>
+	<h1 align="center">Добро пожаловать в панель администартора!</h1>
+            <div class="header-block d-flex align-items-center">
+               <div class="container">
+                  <div class="row"><p align = "center">Фермерское хозяйство “Грицкевичей”<br>
+   <?php if(isset($_SESSION['logged_user'])) : ?>
+      Привет, <?php echo $_SESSION['logged_user']->name; ?><br>
 
    <!-- Пользователь может нажать выйти для выхода из системы -->
-   <a href="logout.php">Выйти</a>
-   <?php else : header('Location: login.php')?>
+   <a href="logout.php">Выйти</a></p>
    <?php endif; ?>
+                  </div>
+               </div>
+            </div>
+			<nav class="navigation d-flex align-items-center">
+               <div class="container">
+                  <div class="row" style="justify-content:center">
+                     <div class="col-8">
+                        <div class="navgition-menu d-flex align-items-center justify-content-center">
+                           <ul class="mb-0">
+                              <li class="toggleable">
+                                 <a class="menu-item" href="adding_product.php">Редактирование списка продуктов</a>
+                              </li>
+                              <li class="toggleable">
+                                 <a class="menu-item" href="index.php">Главная</a>
+                              </li>
+                              
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+</header>
 
-<div class="container mt-4">
-		<div class="row">
-			<div class="col">
+   
+
+<div class="container mt-4" style="justify-content: center !important; max-width: 540px;">
 	   <!-- Форма регистрации -->
-		<h2>Форма добавления нового администратора</h2>
+		<h2 align="center">Форма добавления нового администратора</h2><br>
 		<form action="signup.php" method="post">
+			<div style="justify-content: center;">
 			<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин"><br>
 			<input type="email" class="form-control" name="email" id="email" placeholder="Введите Email"><br>
 			<input type="text" class="form-control" name="name" id="name" placeholder="Введите имя" required><br>
 			<input type="text" class="form-control" name="family" id="family" placeholder="Введите фамилию" required><br>
 			<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль"><br>
 			<input type="password" class="form-control" name="password_2" id="password_2" placeholder="Повторите пароль"><br>
-			<button class="btn btn-success" name="do_signup" type="submit">Добавить</button>
+			<div style="margin-left: 35%;">
+			<button class="no-round-btn btn-success" name="do_signup" type="submit">Добавить</button>
+   </div>
+			</div>
 		</form>
 		<br>
-		<p>Вернуться на <a href="index.php">главную</a>.</p>
-			</div>
-		</div>
 	</div>
 <?php require __DIR__ . '/footer.php'; ?> <!-- Подключаем подвал проекта -->
 </body>

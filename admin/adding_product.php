@@ -177,28 +177,63 @@ if(isset($data['add_product'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="preload" href="../gretskiy/static/fonts/ElegantIcons.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Regular.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Medium.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/Cera%20Pro%20Bold.woff" as="font" type="font/woff" crossorigin>
+      <link rel="preload" href="../gretskiy/static/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="css/style-product.css">
+	<link rel="stylesheet" type="text/css" href="css/style-product2.css">
+<link rel="stylesheet" href="../gretskiy/static/css/packedmin_all_css.css">
 	<title>Document</title>
 </head>
 <body>
+<header>  
 
+<h1 align="center">Добро пожаловать в панель администартора!</h1>
+		<div class="header-block d-flex align-items-center">
+		   <div class="container">
+			  <div class="row"><p align = "center">Фермерское хозяйство “Грицкевичей”<br>
 <?php if(isset($_SESSION['logged_user'])) : ?>
-      Привет, <?php echo $_SESSION['logged_user']->name; ?></br>
+  Привет, <?php echo $_SESSION['logged_user']->name; ?><br>
 
-   <!-- Пользователь может нажать выйти для выхода из системы -->
-   <a href="logout.php">Выйти</a>
-   <?php else : header('Location: login.php')?>
-   <?php endif; ?>
-
-<div class="container mt-4">
-		<div class="row">
-			<div class="col">
+<!-- Пользователь может нажать выйти для выхода из системы -->
+<a href="logout.php">Выйти</a></p>
+<?php endif; ?>
+			  </div>
+		   </div>
+		</div>
+		<nav class="navigation d-flex align-items-center">
+		   <div class="container">
+			  <div class="row" style="justify-content:center">
+				 <div class="col-8">
+					<div class="navgition-menu d-flex align-items-center justify-content-center">
+					   <ul class="mb-0">
+						  <li class="toggleable">
+							 <a class="menu-item" href="signup.php">Добавление нового пользователя</a>
+						  </li>
+						  <li class="toggleable">
+							 <a class="menu-item" href="index.php">Главная</a>
+						  </li>
+						  <li class="toggleable">
+							 <a class="menu-item" href="table_page.php">Таблица с продуктами</a>
+						  </li>
+					   </ul>
+					</div>
+				 </div>
+			  </div>
+		   </div>
+		</nav>
+</header>
+<div class="container mt-4" style="justify-content: center !important; max-width: 540px;" >
+		
 	   <!-- Форма регистрации -->
 		<h2>Форма добавления нового товара</h2>
-		<form action="adding_product.php" method="post">
+		<form action="adding_product.php" method="post"> 
+		<div style="justify-content: center;">
 			<input type="text" class="form-control" name="name" id="name" placeholder="Введите название товара"><br>
 			<input type="text" class="form-control" name="type" id="type" placeholder="Введите вид ореха"><br>
 			<input type="text" class="form-control" name="description" id="description" placeholder="Введите краткое описание"><br>
@@ -209,58 +244,15 @@ if(isset($data['add_product'])) {
 			<input type="text" class="form-control" name="shelf_life" id="shelf_life" placeholder="Введите срок годности"><br>
 			<input type="text" class="form-control" name="picture" id="picture" placeholder="Название файла-картинки"><br>
 			<input type="text" class="form-control" name="if_fried" id="if_fried" placeholder="Орех обжарен? (1/0)"><br>
-			<button class="btn btn-success" name="add_product" type="submit">Добавить</button>
+			
+			<div style="margin-left: 35%;">
+			<button class="no-round-btn btn-success" name="add_product" type="submit">Добавить</button>
+   			</div>
+</div>
 		</form>
 		<br>
-		
-		<?php
-		$query = R::getAll( 'SELECT * FROM product' );
-        foreach($query as $item):
-		?>
+</div>
 
-		<table border='1px'>
-			<tr>
-				<td>Идентификатор (ID)</td>
-				<td>Название товара</td>
-				<td>ID вида</td>
-				<td>Вид ореха</td>
-				<td>Краткое описание</td>
-				<td>Полное описание</td>
-				<td>Цена</td>
-				<td>Размер упаковки</td>
-				<td>Вес упаковки</td>
-				<td>Срок годности</td>
-				<td>Файл-картинка</td>
-				<td>Обжарен ли орех</td>
-				<td>Дата добавления</td>
-				<td>Удалить запись</td>
-			</tr>
-			<tr>
-				<td><?=$item['id']?></td>
-				<td><?=$item['name']?></td>
-				<td><?=$item['type_n']?></td>
-				<td><?=$item['type']?></td>
-				<td><?=$item['description']?></td>
-				<td><?=$item['full_description']?></td>
-				<td><?=$item['price']?></td>
-				<td><?=$item['size']?></td>
-				<td><?=$item['weight']?></td>
-				<td><?=$item['shelf_life']?></td>
-				<td><?=$item['picture']?></td>
-				<td><?=$item['if_fried']?></td>
-				<td><?=$item['date_if_introduction']?></td>
-				<td><a href='?del_id=<?=$item['id']?>'>Удалить</a></td>
-			</tr>
-			
-		</table>
-
-		<?php endforeach; ?>
-		
-
-		<p>Вернуться на <a href="index.php">главную</a>.</p>
-			</div>
-		</div>
-	</div>
 <?php require __DIR__ . '/footer.php'; ?> <!-- Подключаем подвал проекта -->
 </body>
 </html>

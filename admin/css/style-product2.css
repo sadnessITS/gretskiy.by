@@ -33,7 +33,6 @@ body {
 
   
     #main { 
-        width: 912px; 
         float: left; 
     } 
   #main table {
@@ -55,6 +54,11 @@ body {
     margin: 2px;
     padding:5px;
     text-align: center;
+  }
+  #main table td.special{
+    margin: 2px;
+    padding:5px;
+    text-align: justify;
   }
     #sidebar { 
       margin-left: auto;
