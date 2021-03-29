@@ -231,7 +231,7 @@ if(isset($data['add_product'])) {
 <div class="container mt-4" style="justify-content: center !important; max-width: 540px;" >
 		
 	   <!-- Форма регистрации -->
-		<h2>Форма добавления нового товара</h2>
+		<h2 align="center">Форма добавления нового товара</h2><br>
 		<form action="adding_product.php" method="post"> 
 		<div style="justify-content: center;">
 			<input type="text" class="form-control" name="name" id="name" placeholder="Введите название товара"><br>

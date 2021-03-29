@@ -175,7 +175,7 @@ if(isset($data['do_signup'])) {
 
 <div class="container mt-4" style="justify-content: center !important; max-width: 540px;">
 	   <!-- Форма регистрации -->
-		<h2 align="center">Форма добавления нового администратора</h2><br>
+		<h2 align="center" >Форма добавления нового администратора</h2><br>
 		<form action="signup.php" method="post">
 			<div style="justify-content: center;">
 			<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин"><br>
