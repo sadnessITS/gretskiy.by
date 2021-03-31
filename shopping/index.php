@@ -71,7 +71,7 @@ else{
                <div class="container">
                   <div class="row">
                      <div class="col-2">
-                        <a class="logo" href="index.php">
+                        <a class="logo" href="../index.php">
                            <img src="../gretskiy/static/images/logoV2.png" width="150px"alt="">
                         </a>
                      </div>
