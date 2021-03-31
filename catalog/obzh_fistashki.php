@@ -183,7 +183,7 @@ else{
             <div class="row">
               <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
                 <div class="department-menu_block">
-                  <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Продукция<span><i class="arrow_carrot-down"></i></span></div>
+                  <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Каталог<span><i class="arrow_carrot-down"></i></span></div>
                   <div class="department-dropdown-menu" style="display: none;">
                     <ul>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
