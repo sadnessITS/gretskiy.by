@@ -1,5 +1,5 @@
 <?php 
-  
+
   if(isset($_GET['action']) && $_GET['action']=="add"){ 
         
       $id=intval($_GET['id']); 
@@ -41,20 +41,56 @@ foreach($_POST['quantity'] as $key => $val) {
         $_SESSION['cart'][$key]['quantity']=$val; 
     } 
 } 
-  
+
 }
+if(isset($_POST['deleteall'])){ 
+  
+    foreach($_POST['quantity'] as $key => $val) { 
+        if($val == 0) { 
+            unset($_SESSION['cart'][$key]); 
+        }else{ 
+            $_SESSION['cart'][$key]['quantity']=0; 
+        } 
+    } 
+    
+    }
+    if(isset($_POST['delete'])){ 
+  
+        foreach($_POST['quantity'] as $key => $val ) { 
+            $id=intval($_GET['id']); 
+            
+            if($val == 0) { 
+                unset($_SESSION['cart'][$key]); 
+            }else{ 
+                $_SESSION['cart'][$key][$rows['id']]['quantity'] =  0;
+            } 
+        } 
+        
+        }
+    
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<script src="js/myCart.js"></script>
+
+</head>
+<body>
 <h1>Корзина <a class= "cart_a" href="../catalog/all.php">Перейти к продуктам</a></h1>
 <form method="post" action="index.php?page=cart"> 
       
     <table> 
-          
-        <tr> 
+          <div id="in-check">
+        <tr > 
             <th>Картинка</th>
             <th>Название товара</th> 
             <th>Количество</th> 
             <th>Цена, $</th> 
             <th>Итог</th> 
+            <th> </th>
         </tr> 
           
         <?php 
@@ -67,13 +103,14 @@ foreach($_POST['quantity'] as $key => $val) {
                         if($_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] != 0){
                         $subtotal=$_SESSION['cart'][$rows['id']]['quantity']*$rows['price']; 
                         $totalprice+=$subtotal; 	
-                    ?> 
+                    ?>
                         <tr> 
                             <td><?php echo '<img src='.$rows['picture'].' width="50" height="50">'?></td>
                             <td><?php echo $rows['name'] ?></td> 
                             <td><input type="text" name="quantity[<?php echo $rows['id'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$rows['id']]['quantity'] ?>" /></td> 
                             <td>$<?php echo $rows['price'] ?></td> 
                             <td>$<?php echo $_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] ?></td> 
+                          <td><button  type="delete" name="delete">Удалить</button>
                         </tr> 
                     <?php 
                           
@@ -87,8 +124,9 @@ foreach($_POST['quantity'] as $key => $val) {
     <div class="ctrl_sum update">Сумма заказа: $<?php echo $totalprice ?></div> 
     <br /> 
     <button type="submit" name="submit" class="no-round-btn" style="width: 20%;">Обновить</button>
+    <button type="deleteall" name="deleteall" class="no-round-btn" style="width: 20%;">Удалить всё</button>
 </form> 
 <br /> 
 <p>Для удаления товара из корзины установите в графе "Количество" 0. </p>
-
-
+</body>
+<html>
