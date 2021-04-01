@@ -117,7 +117,5 @@ if(isset($_POST['deleteall'])){
     <button type="submit" name="submit" class="no-round-btn" style="width: 20%;">Обновить</button>
     <button type="deleteall" name="deleteall" class="no-round-btn" style="width: 20%;">Удалить всё</button>
 </form> 
-<br /> 
-<p>Для удаления товара из корзины установите в графе "Количество" 0. </p>
 </body>
 <html>
