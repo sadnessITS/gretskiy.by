@@ -29,7 +29,10 @@
         
   } 
 
+ 
+
 ?> 
+
       
 <?php
 if(isset($_POST['submit'])){ 
@@ -54,30 +57,18 @@ if(isset($_POST['deleteall'])){
     } 
     
     }
-    if(isset($_POST['delete'])){ 
-  
-        foreach($_POST['quantity'] as $key => $val ) { 
-            $id=intval($_GET['id']); 
-            
-            if($val == 0) { 
-                unset($_SESSION['cart'][$key]); 
-            }else{ 
-                $_SESSION['cart'][$key][$rows['id']]['quantity'] =  0;
-            } 
-        } 
+    if(isset($_GET['action']) && $_GET['action']=="delete"){
+    $id=intval($_GET['idToRemove']); 
         
-        }
-    
+    if(isset($_SESSION['cart'][$id])){ 
+          
+        $_SESSION['cart'][$id]['quantity'] = 0; 
+    }
+    }
 ?>
 
 <!DOCTYPE html>
 <html>
-<head>
-
-
-<script src="js/myCart.js"></script>
-
-</head>
 <body>
 <h1>Корзина <a class= "cart_a" href="../catalog/all.php">Перейти к продуктам</a></h1>
 <form method="post" action="index.php?page=cart"> 
@@ -110,7 +101,7 @@ if(isset($_POST['deleteall'])){
                             <td><input type="text" name="quantity[<?php echo $rows['id'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$rows['id']]['quantity'] ?>" /></td> 
                             <td>$<?php echo $rows['price'] ?></td> 
                             <td>$<?php echo $_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] ?></td> 
-                          <td><button  type="delete" name="delete">Удалить</button>
+                           <td> <a type="delete" name="delete" href="?idToRemove=<?php echo $rows['id']?>&action=delete"> Remove </a></td>
                         </tr> 
                     <?php 
                           
