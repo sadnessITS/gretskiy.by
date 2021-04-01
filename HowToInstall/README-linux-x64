@@ -1,0 +1,47 @@
+================================================================================================
+How To Open This site on a local server XAMPP linux 64bit
+
+Step 1 open the terminal as root(ctrl+alt+t)
+Step 2 enter the following text:
+chmod u+x ~/Загрузки(or "Downloads" depends on system language)/xampp-linux-x64-7.3.27-1-installer.run <Enter>
+sudo ~/Загрузки/xampp-linux-x64-7.3.3-1-installer.run <Enter>
+
+Step 3 install the xampp application( you can launch XAMPP after installing, in future you 
+can start the app in the terminal by entering following text:
+sudo /opt/lampp/manager-linux-x64.run );
+
+Step 4 open the browser and enter the following text in the adress line:
+localhost<Enter>
+Now if you dont see the starting page go to the start app and
+on the Manage Servers page press the "start all" button;
+
+Step 5 open the xampp directory(usually /opt/lampp/lampp)
+
+Step 6 open "htdocs" folder and paste your website folder in it(gretskiy.by)
+You can also change this directory, if you don't need to go to the step 7
+open the nautilus(file manager) as sudo and go to the xampp directory;
+find the httpd.conf and open it for editing;
+find DocumentRoot "your repository" and <Directory "your repository"> (229, 230 lines(?))
+put desired repository and save the file
+then put your site folder to that repository 
+now you can open it in browser like:
+localhost/"folder name";
+
+Step 7 open any browser you like and enter the following text in the adress line:
+localhost/gretskiy.by/<Enter>
+You can see now the main page of the gretskiy.by website
+
+===============================How do I edit it ?==============================================
+To edit pages use any text editor. We used Visual Studio Code as our main editor;
+
+============================How do I enter the database?=======================================
+To enter the database go to :
+localhost/phpmyadmin/ 
+=============================How do I enter the admin panel?===================================
+To enter the admin panel go to :
+localhost/gretski.by/admin/
+Login: superadmin
+Password: 12345676
+
+You can also join the git repository, if you want to then contact us:
+vk.com/sadnessits

@@ -190,7 +190,7 @@ else{
                   <div class="row">
                      <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
                         <div class="department-menu_block">
-                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Продукция<span><i class="arrow_carrot-down"></i></span></div>
+                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Каталог<span><i class="arrow_carrot-down"></i></span></div>
                            <div class="department-dropdown-menu" style="display: none;">
                               <ul>
                                  <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
@@ -249,12 +249,12 @@ else{
                            <div class="recent-post_bottom">
                               <div class="mini-post_block">
                                  <div class="mini-post_img">
-                                    <a href="post/1.html">
+                                    <a href="post/1.php">
                                     <img src="gretskiy/uploads/uploads/image/news/wew_QMiwgy3.png" alt="blog image">
                                     </a>
                                  </div>
                                  <div class="mini-post_text">
-                                    <a href="post/1.html">Встречайте, новый дизайн!!</a>
+                                    <a href="post/1.php">Встречайте, новый дизайн!!</a>
                                     <h5>23 Февраль 2021</h5>
                                  </div>
                               </div>
@@ -271,17 +271,17 @@ else{
                         <div class="blog-block">
                            <div class="row">
                               <div class="col-5">
-                                 <div class="blog-img"><a href="post/1.html"><img src="gretskiy/uploads/uploads/image/news/wew_QMiwgy3.png" alt="blog image"></a></div>
+                                 <div class="blog-img"><a href="post/1.php"><img src="gretskiy/uploads/uploads/image/news/wew_QMiwgy3.png" alt="blog image"></a></div>
                               </div>
                               <div class="col-7">
                                  <div class="blog-text">
                                     <h5 class="blog-tag">Новости компании</h5>
-                                    <a class="blog-title" href="post/1.html">Встречайте, новый дизайн!!</a>
+                                    <a class="blog-title" href="post/1.php">Встречайте, новый дизайн!!</a>
                                     <div class="blog-credit">
                                        <p class="credit date">23 Февраль 2021</p>
                                     </div>
                                     <p class="blog-describe">Встречайте, новый дизайн!!</p>
-                                    <a class="blog-readmore" href="post/1.html">Подробнее<span> <i class="arrow_carrot-2right"></i></span></a>
+                                    <a class="blog-readmore" href="post/1.php">Подробнее<span> <i class="arrow_carrot-2right"></i></span></a>
                                  </div>
                               </div>
                            </div>

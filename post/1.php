@@ -1,4 +1,22 @@
-﻿<!DOCTYPE html>
+﻿<?php
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
+require ("shopping/connection.php");
+if (isset($_GET['page'])){
+$pages=array("products", "cart");
+      if (in_array($_GET['page'],$pages)){
+$_page=$_GET['page'];
+      }
+      else{
+$_page="products";
+    }
+} 
+else{
+  $_page="products";
+}
+?>
+<!DOCTYPE html>
 <html lang="ru">
    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
    <head>
@@ -20,20 +38,20 @@
       <meta property="og:title" content="Фермерское хозяйство “Грицкевичей” в широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
       <meta property="og:type" content="website">
       <meta property="og:image" content="../gretskiy/static/images/logo.svg">
-      <meta property="og:url" content="../index.html">
+      <meta property="og:url" content="../index.php">
       <meta property="og:description" content="ФХ “Грицкевичей” - Фермерское хозяйство “Грицкевичей”, Gretskiy, Vitae. В широком ассортименте предлагает купить орехи оптом с доставкой. Мы осуществляем продажу овощей оптом от производителя">
       <!-- Google Tag Manager -->
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-         '../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+         '../../www.googletagmanager.com/gtm5445.php?id='+i+dl;f.parentNode.insertBefore(j,f);
          })(window,document,'script','dataLayer','GTM-NQ6247F');
       </script>
       <!-- End Google Tag Manager -->
    </head>
    <body>
       <!-- Google Tag Manager (noscript) -->
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQ6247F"
+      <noscript><iframe src="https://www.googletagmanager.com/ns.php?id=GTM-NQ6247F"
          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- End Google Tag Manager (noscript) -->
       <div id="preload">
@@ -74,25 +92,25 @@
                <div class="container">
                   <div class="row">
                      <div class="col-2">
-                        <a class="logo" href="../index.html"><img src="../gretskiy/static/images/logov2.png" width='150px'alt=""></a>
+                        <a class="logo" href="../index.php"><img src="../gretskiy/static/images/logov2.png" width='150px'alt=""></a>
                      </div>
                      <div class="col-8">
                         <div class="navgition-menu d-flex align-items-center justify-content-center">
                            <ul class="mb-0">
                               <li class="toggleable">
-                                 <a class="menu-item" href="../index.html">Главная</a>
+                                 <a class="menu-item" href="../index.php">Главная</a>
                               </li>
                               <li class="toggleable">
                                  <a class="menu-item" href="../catalog/all.php">Продукция</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../about_company.html">О компании</a>
+                                 <a class="menu-item" href="../about_company.php">О компании</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../blog.html">Новости</a>
+                                 <a class="menu-item" href="../blog.php">Новости</a>
                               </li>
                               <li class="toggleable">
-                                 <a class="menu-item" href="../contact.html">Контакты</a>
+                                 <a class="menu-item" href="../contact.php">Контакты</a>
                               </li>
                            </ul>
                         </div>
@@ -116,27 +134,27 @@
                               <div class="mobile-menu_items">
                                  <ul class="mb-0 d-flex flex-column">
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../index.html">Главная</a>
+                                       <a class="menu-item" href="../index.php">Главная</a>
                                     </li>
                                     <li class="toggleable">
                                        <a class="menu-item" href="../catalog/all.php">Продукция</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../about_company.html">О компании</a>
+                                       <a class="menu-item" href="../about_company.php">О компании</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../blog.html">Новости</a>
+                                       <a class="menu-item" href="../blog.php">Новости</a>
                                     </li>
                                     <li class="toggleable">
-                                       <a class="menu-item" href="../contact.html">Контакты</a>
+                                       <a class="menu-item" href="../contact.php">Контакты</a>
                                     </li>
                                     <!--<li class="toggleable"> </li>
                                        <li class="toggleable"><a class="menu-item" href="#">Пример вложенности</a><span class="sub-menu--expander"><i class="icon_plus"></i></span>
                                          <ul class="sub-menu" style="display: none;">
-                                           <li><a href="404.html">404</a></li>
-                                           <li><a href="blog_detail.html">страница новости</a></li>
-                                           <li><a href="shop.html">страница каталога</a></li>
-                                           <li><a href="produkt.html">страница товара</a></li>
+                                           <li><a href="404.php">404</a></li>
+                                           <li><a href="blog_detail.php">страница новости</a></li>
+                                           <li><a href="shop.php">страница каталога</a></li>
+                                           <li><a href="produkt.php">страница товара</a></li>
                                          </ul>
                                        </li>-->
                                  </ul>
@@ -156,7 +174,7 @@
                         </div>
                      </div>
                      <div class="col-6">
-                        <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.html"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
+                        <div class="mobile-menu_logo text-center d-flex justify-content-center align-items-center"><a href="../index.php"><img src="../gretskiy/static/images/logo.png" alt=""></a></div>
                      </div>
                      <div class="col-3">
                         <div class="mobile-product_function d-flex align-items-center justify-content-end">
@@ -171,17 +189,17 @@
                   <div class="row">
                      <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
                         <div class="department-menu_block">
-                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Продукция<span><i class="arrow_carrot-down"></i></span></div>
+                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Каталог<span><i class="arrow_carrot-down"></i></span></div>
                            <div class="department-dropdown-menu" style="display: none;">
                               <ul>
                                  <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
-                      <li><a href="fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
-                      <li><a href="funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
-                      <li><a href="gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
-                      <li><a href="mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
+                      <li><a href="../catalog/fistashki.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="../catalog/funduk.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Funduk.svg" alt="">Фундук</a></li>
+                      <li><a href="../catalog/gretskiy_oreh.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Gretskiy_orekh.svg" alt="">Грецкий Орех</a></li>
+                      <li><a href="../catalog/mindal.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Mindal.svg" alt="">Миндаль</a></li>
                       <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>ОБЖАРЕННЫЕ ОРЕХИ</b></li>
-                      <li><a href="obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
-                      <li><a href="obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
+                      <li><a href="../catalog/obzh_lesnoy.php" class=""> - <img class="ico-menu" src="../gretskiy/static/images/ico/Lesnoy_orekh.svg" alt="">Фундук</a></li>
+                      <li><a href="../catalog/obzh_fistashki.php"> - <img class="ico-menu" src="../gretskiy/static/images/ico/Fistashki.svg" alt="">Фисташки</a></li>
 </ul>
                            </div>
                         </div>
@@ -210,8 +228,8 @@
          <div class="ogami-breadcrumb">
             <div class="container">
                <ul>
-                  <li> <a class="breadcrumb-link" href="../index.html"> <i class="fas fa-home"></i>Главная</a></li>
-                  <li> <a class="breadcrumb-link active" href="../blog.html">Новости</a></li>
+                  <li> <a class="breadcrumb-link" href="../index.php"> <i class="fas fa-home"></i>Главная</a></li>
+                  <li> <a class="breadcrumb-link active" href="../blog.php">Новости</a></li>
                   <li> <a class="breadcrumb-link active">Встречайте, новый дизайн!!</a></li>
                </ul>
             </div>
@@ -230,12 +248,12 @@
                            <div class="recent-post_bottom">
                               <div class="mini-post_block">
                                  <div class="mini-post_img">
-                                    <a href="1.html">
+                                    <a href="1.php">
                                     <img src="../gretskiy/uploads/uploads/image/news/wew_QMiwgy3.png" alt="blog image">
                                     </a>
                                  </div>
                                  <div class="mini-post_text">
-                                    <a href="1.html">Встречайте, новый дизайн!!</a>
+                                    <a href="1.php">Встречайте, новый дизайн!!</a>
                                     <h5>23 Февраль 2021</h5>
                                  </div>
                               </div>
@@ -323,11 +341,11 @@
                         <div class="col-12 col-sm-4 text-sm-center text-md-left">
                            <div class="footer-quicklink">
                               <h5>Карта сайта</h5>
-                              <a href="index.html">Главная</a>
-                              <a href="catalog/all.php">Продукция</a>
-                              <a href="about_company.html">О компании</a>
-                              <a href="blog.html">Новости</a>
-                              <a href="contact.html">Контакты</a>
+                              <a href="../index.php">Главная</a>
+                              <a href="../catalog/all.php">Продукция</a>
+                              <a href="../about_company.php">О компании</a>
+                              <a href="../blog.php">Новости</a>
+                              <a href="../contact.php">Контакты</a>
                            </div>
                         </div>
                         <div class="col-12 col-sm-4 text-sm-center text-md-left">
