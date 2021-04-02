@@ -190,7 +190,7 @@ else{
                   <div class="row">
                      <div class="col-12 col-md-4 col-lg-4 col-xl-3 order-2 order-md-1">
                         <div class="department-menu_block">
-                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Каталог<span><i class="arrow_carrot-down"></i></span></div>
+                           <div class="department-menu d-flex justify-content-between align-items-center"><i class="fas fa-bars"></i>Продукция<span><i class="arrow_carrot-down"></i></span></div>
                            <div class="department-dropdown-menu" style="display: none;">
                               <ul>
                                  <li style="text-align: center;font-size: 2ex;border-bottom: 1px solid black;border-top: 1px solid black;"><b>СВЕЖИЕ ОРЕХИ</b></li>
@@ -275,7 +275,7 @@ else{
                <div class="leave-message">
                   <h1 class="title">Есть вопросы?</h1>
                   <p>Заполните форму и отправьте нам свой вопрос! Мы постараемся ответить как можно быстрее</p>
-                  <form action="http://gretskiy.by/feedback_contact" method="post">
+                  <form action="send.php" id="f_contact" name="contact"  method="POST">
                      <div class="row">
                         <div class="col-12 col-md-4">
                            <input class="no-round-input" name="name" type="text" placeholder="Имя">
@@ -287,10 +287,9 @@ else{
                            <input class="no-round-input" name="email" type="email" required placeholder="Email">
                         </div>
                         <div class="col-12">
-                           <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
-                           <input type="hidden">
-                           <button class="normal-btn">Отправить сообщение</button>
+                           <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>  
                         </div>
+                        <button id="f_send" type="submit" class="normal-btn">Отправить сообщение</button>
                      </div>
                   </form>
                </div>
@@ -412,16 +411,15 @@ else{
                   </div>
                </div>
             </div>
-            <div class="form-feedback" id="feedback-form">
-               <form id="f_contact" name="contact" action="#" method="post">
+            <div>
+               <form action="send.php"  id="f_contact" name="contact"  method="POST">
                   <h2>Оставить заявку</h2>
-                  <input class="no-round-input mt-20" name="name" type="text" placeholder="Имя"><br>
-                  <input class="no-round-input mt-20" name="phone" type="phone" required placeholder="Телефон"><br>
-                  <input class="no-round-input mt-20" name="email" type="email" required placeholder="Email"><br>
-                  <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
+                  <input class="no-round-input" name="name" type="text" placeholder="Имя"><br>
+                  <input class="no-round-input" name="phone" type="phone" required placeholder="Телефон"><br>
+                  <input class="no-round-input" name="email" type="email" required placeholder="Email"><br>
+                  <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
                   <br>
-                  <input type="hidden" name="csrfmiddlewaretoken" value="vv9hoHLyqiIYoEaC0LO3dk9I4moJZ09bK8rbzIUVogKpuVDlTkK6N2UG6h5JnWjT">
-                  <button id="f_send" class="normal-btn mt-20">Отправить сообщение</button>
+                  <button  type="submit" class="normal-btn">Отправить сообщение</button>
                </form>
             </div>
          </footer>

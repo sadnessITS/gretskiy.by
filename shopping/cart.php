@@ -101,7 +101,7 @@ if(isset($_POST['deleteall'])){
                             <td><input type="text" name="quantity[<?php echo $rows['id'] ?>]" size="5" value="<?php echo $_SESSION['cart'][$rows['id']]['quantity'] ?>" /></td> 
                             <td>$<?php echo $rows['price'] ?></td> 
                             <td>$<?php echo $_SESSION['cart'][$rows['id']]['quantity']*$rows['price'] ?></td> 
-                           <td> <a type="delete" name="delete" href="?idToRemove=<?php echo $rows['id']?>&action=delete"> Remove </a></td>
+                            <td><a class="cart_a" type="delete" name="delete" href="?idToRemove=<?php echo $rows['id']?>&action=delete">Удалить</a></td>
                         </tr> 
                     <?php 
                           
