@@ -2,6 +2,15 @@
 $title="Table"; // название формы
 require __DIR__ . '/header.php'; // подключаем шапку проекта
 require "db.php"; // подключаем файл для соединения с БД
+
+if (isset($_GET['del_id'])) { //проверяем, есть ли переменная
+    //удаляем строку из таблицы
+
+	$id = $_GET['del_id'];
+    $delproduct = R::load('product', $id);
+    R::trash($delproduct);
+  }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
