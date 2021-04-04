@@ -137,7 +137,7 @@ if(isset($data['do_signup'])) {
 <body>
 <header>  
 
-	<h1 align="center">Добро пожаловать в панель администартора!</h1>
+	<h1 align="center">Добро пожаловать в панель администратора!</h1>
             <div class="header-block d-flex align-items-center">
                <div class="container">
                   <div class="row"><p align = "center">Фермерское хозяйство “Грицкевичей”<br>
