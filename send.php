@@ -7,7 +7,7 @@ require 'gretskiy/static/phpmailer/phpmailer/Exception.php';
 // Переменные, которые отправляет пользователь
 $name = $_POST['name'];
 $phone = $_POST['phone'];
-$msg = $_POST['msg'];
+$message = $_POST['msg'];
 $email = $_POST['email'];
 
 
@@ -18,7 +18,7 @@ $body = "
 <b>Имя:</b> $name<br>
 <b>Телефон:</b> $phone<br>
 <b>Email:</b><br>$email<br>
-<b>Сообщение:</b><br>$msg<br>
+<b>Сообщение:</b><br>$message<br>
 ";
 
 
@@ -32,13 +32,13 @@ try {
 
 
     $mail->Host       = 'smtp.gmail.com';
-    $mail->Username   = 'socialalah@mail.ru'; 
-    $mail->Password   = '874sdvj86dsvv'; 
+    $mail->Username   = 'isayev.official@gmail.com'; 
+    $mail->Password   = 'isay31052002ev'; 
     $mail->SMTPSecure = 'ssl';
     $mail->Port       = 465;
-    $mail->setFrom('socialalah@mail.ru', 'Андрей Сайко');
+    $mail->setFrom('isayev.official@gmail.com', 'Егор Исаев');
 
-    $mail->addAddress('socialalah@mail.ru');
+    $mail->addAddress('dima346922336@gmail.com');
    
 
     $mail->isHTML(true);
@@ -53,4 +53,5 @@ else {$result = "error";}
     $result = "error";
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
-// echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
+echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
+header('Location: contact.php');

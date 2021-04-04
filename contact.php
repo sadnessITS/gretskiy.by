@@ -275,7 +275,7 @@ else{
                <div class="leave-message">
                   <h1 class="title">Есть вопросы?</h1>
                   <p>Заполните форму и отправьте нам свой вопрос! Мы постараемся ответить как можно быстрее</p>
-                  <form action="send.php" id="f_contact" name="contact"  method="POST">
+                  <form action="send.php" name="contact"  method="POST">
                      <div class="row">
                         <div class="col-12 col-md-4">
                            <input class="no-round-input" name="name" type="text" placeholder="Имя">
@@ -289,7 +289,9 @@ else{
                         <div class="col-12">
                            <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>  
                         </div>
-                        <button id="f_send" type="submit" class="normal-btn">Отправить сообщение</button>
+                        <div class="col-12">
+                        <button type="submit" class="normal-btn">Отправить сообщение</button>
+                        </div>
                      </div>
                   </form>
                </div>
@@ -410,17 +412,6 @@ else{
                      <p class="author">© 2021 Gretskiy | Фермерское хозяйство "Грицкевичей" | Все права защищены</p>
                   </div>
                </div>
-            </div>
-            <div>
-               <form action="send.php"  id="f_contact" name="contact"  method="POST">
-                  <h2>Оставить заявку</h2>
-                  <input class="no-round-input" name="name" type="text" placeholder="Имя"><br>
-                  <input class="no-round-input" name="phone" type="phone" required placeholder="Телефон"><br>
-                  <input class="no-round-input" name="email" type="email" required placeholder="Email"><br>
-                  <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>
-                  <br>
-                  <button  type="submit" class="normal-btn">Отправить сообщение</button>
-               </form>
             </div>
          </footer>
          <!-- -->
