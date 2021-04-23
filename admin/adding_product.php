@@ -33,11 +33,6 @@ if(isset($data['add_product'])) {
 		$errors[] = "Введите вид ореха";
 	}
 
-	if ($data['type'] != 'Грецкий орех' && $data['type'] != 'Фундук' && $data['type'] != 'Миндаль' && $data['type'] != 'Фисташки')	{
-		
-		$errors[] = "Такой орех не производится!";
-	}
-
 	if ($data['type'] == 'Грецкий орех' || $data['type'] == 'грецкий орех')	{
 
 		$data['type'] = 'Грецкий орех';
@@ -60,6 +55,11 @@ if(isset($data['add_product'])) {
 
 		$data['type'] = 'Фисташки';
 		$data['type_n'] = '4';
+	}
+
+	if ($data['type'] != 'Грецкий орех' && $data['type'] != 'Фундук' && $data['type'] != 'Миндаль' && $data['type'] != 'Фисташки')	{
+		
+		$errors[] = "Такой орех не производится!";
 	}
 
 	if(trim($data['description']) == '') {
@@ -248,7 +248,7 @@ if(isset($data['add_product'])) {
 			<div style="margin-left: 35%;">
 			<button class="no-round-btn btn-success" name="add_product" type="submit">Добавить</button>
    			</div>
-</div>
+		</div>
 		</form>
 		<br>
 </div>

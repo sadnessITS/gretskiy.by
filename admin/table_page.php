@@ -71,45 +71,43 @@ if (isset($_GET['del_id'])) { //проверяем, есть ли перемен
         foreach($query as $item):
 		?>
 <div id="main">
+	<table>
+		<tr>
+			<th>Идентификатор (ID)</th>
+			<th>Название товара</th>
+			<th>ID вида</th>
+			<th>Вид ореха</th>
+			<th>Краткое описание</th>
+			<th>Полное описание</th>
+			<th>Цена</th>
+			<th>Размер упаковки</th>
+			<th>Вес упаковки</th>
+			<th>Срок годности</th>
+			<th>Файл-картинка</th>
+			<th>Обжарен ли орех</th>
+			<th>Дата добавления</th>
+			<th>Удалить запись</th>
+		</tr>
+		<tr>
+			<td><?=$item['id']?></td>
+			<td><?=$item['name']?></td>
+			<td><?=$item['type_n']?></td>
+			<td><?=$item['type']?></td>
+			<td><?=$item['description']?></td>
+			<td class="special"><?=$item['full_description']?></td>
+			<td><?=$item['price']?></td>
+			<td><?=$item['size']?></td>
+			<td><?=$item['weight']?></td>
+			<td><?=$item['shelf_life']?></td>
+			<td><?=$item['picture']?></td>
+			<td><?=$item['if_fried']?></td>
+			<td><?=$item['date_if_introduction']?></td>
+			<td><a href='?del_id=<?=$item['id']?>'>Удалить</a></td>
+		</tr>
 		
-		
-		<table>
-			<tr>
-				<th>Идентификатор (ID)</th>
-				<th>Название товара</th>
-				<th>ID вида</th>
-				<th>Вид ореха</th>
-				<th>Краткое описание</th>
-				<th>Полное описание</th>
-				<th>Цена</th>
-				<th>Размер упаковки</th>
-				<th>Вес упаковки</th>
-				<th>Срок годности</th>
-				<th>Файл-картинка</th>
-				<th>Обжарен ли орех</th>
-				<th>Дата добавления</th>
-				<th>Удалить запись</th>
-			</tr>
-			<tr>
-				<td><?=$item['id']?></td>
-				<td><?=$item['name']?></td>
-				<td><?=$item['type_n']?></td>
-				<td><?=$item['type']?></td>
-				<td><?=$item['description']?></td>
-				<td class="special"><?=$item['full_description']?></td>
-				<td><?=$item['price']?></td>
-				<td><?=$item['size']?></td>
-				<td><?=$item['weight']?></td>
-				<td><?=$item['shelf_life']?></td>
-				<td><?=$item['picture']?></td>
-				<td><?=$item['if_fried']?></td>
-				<td><?=$item['date_if_introduction']?></td>
-				<td><a href='?del_id=<?=$item['id']?>'>Удалить</a></td>
-			</tr>
-			
-		</table>
-        </div>
-		<?php endforeach; ?>
-        <?php endif; ?>
+	</table>
+</div>
+<?php endforeach; ?>
+<?php endif; ?>
 </body>
 </html>
