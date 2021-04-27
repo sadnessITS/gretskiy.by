@@ -10582,7 +10582,7 @@ $('footer .footer-quicklink a').each(function(index, element) {
 feedback_fancyrel();
 $("#modalbox2").fancybox();
 $("#f_contact").submit(function() {
-    $.post('/post_feedback', $(this).serialize()).done(function(data) {
+    $.post('/send.php', $(this).serialize()).done(function(data) {
         $("#f_contact").fadeOut("fast", function() {
             $(this).before("<p><strong>Ваше сообщение отправлено!</strong></p>");
             setTimeout("$.fancybox.close()", 3000);

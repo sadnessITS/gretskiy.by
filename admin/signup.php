@@ -14,7 +14,7 @@ if(isset($data['do_signup'])) {
 	$errors = array();
 
 	// Проводим проверки
-        // trim — удаляет пробелы (или другие символы) из начала и конца строки
+        
 	if(trim($data['login']) == '') {
 
 		$errors[] = "Введите логин!";
@@ -178,15 +178,15 @@ if(isset($data['do_signup'])) {
 		<h2 align="center" >Форма добавления нового администратора</h2><br>
 		<form action="signup.php" method="post">
 			<div style="justify-content: center;">
-			<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин"><br>
-			<input type="email" class="form-control" name="email" id="email" placeholder="Введите Email"><br>
-			<input type="text" class="form-control" name="name" id="name" placeholder="Введите имя" required><br>
-			<input type="text" class="form-control" name="family" id="family" placeholder="Введите фамилию" required><br>
-			<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль"><br>
-			<input type="password" class="form-control" name="password_2" id="password_2" placeholder="Повторите пароль"><br>
-			<div style="margin-left: 35%;">
-			<button class="no-round-btn btn-success" name="do_signup" type="submit">Добавить</button>
-   </div>
+				<input type="text" class="form-control" name="login" id="login" placeholder="Введите логин"><br>
+				<input type="email" class="form-control" name="email" id="email" placeholder="Введите Email"><br>
+				<input type="text" class="form-control" name="name" id="name" placeholder="Введите имя" required><br>
+				<input type="text" class="form-control" name="family" id="family" placeholder="Введите фамилию" required><br>
+				<input type="password" class="form-control" name="password" id="password" placeholder="Введите пароль"><br>
+				<input type="password" class="form-control" name="password_2" id="password_2" placeholder="Повторите пароль"><br>
+				<div style="margin-left: 35%;">
+					<button class="no-round-btn btn-success" name="do_signup" type="submit">Добавить</button>
+				</div>
 			</div>
 		</form>
 		<br>
