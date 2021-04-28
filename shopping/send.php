@@ -7,6 +7,7 @@ require '../gretskiy/static/phpmailer/phpmailer/Exception.php';
 // Переменные, которые отправляет пользователь
 $name = $_POST['name'];
 $phone = $_POST['phone'];
+$comment = $_POST['comment'];
 $message = $_POST['msg'];
 $email = $_POST['email'];
 
@@ -18,7 +19,8 @@ $body = "
 <b>Имя:</b> $name<br>
 <b>Телефон:</b> $phone<br>
 <b>Email:</b><br>$email<br>
-<b>Сообщение:</b><br>$message<br>
+<b>Комментарий:</b><br>$comment<br>
+<b>Список продуктов:</b><br>$message<br>
 ";
 
 

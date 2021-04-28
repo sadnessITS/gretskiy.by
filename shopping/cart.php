@@ -155,7 +155,8 @@ function ftime(){
             <input class="no-round-input mt-20" name="name" type="text" placeholder="Имя"><br>
             <input class="no-round-input mt-20" name="phone" type="phone" required placeholder="Телефон"><br>
             <input class="no-round-input mt-20" name="email" type="email" required placeholder="Email"><br>
-            <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"><?php $_SESSION['totalq'] = '';
+            <textarea class="textarea-form mt-20" name="comment" cols="30" rows="10" placeholder="Ваше сообщение"></textarea><br>
+            <textarea class="form-feedback textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"><?php $_SESSION['totalq'] = '';
     if(isset($_SESSION['cart'])){ 
        $sql="SELECT * FROM `product` ORDER BY name ASC";
              $query=mysqli_query($dbconnect, $sql);
