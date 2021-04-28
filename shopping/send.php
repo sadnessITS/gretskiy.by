@@ -54,4 +54,4 @@ else {$result = "error";}
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
 echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
-header('Location: cart.php');
+header('Location: index.php');

@@ -28,8 +28,16 @@
       } 
         
   } 
+  if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+  $url = "https://";   
+else  
+  $url = "http://";   
+// Append the host(domain name, ip) to the URL.   
+$url.= $_SERVER['HTTP_HOST'];   
 
- 
+// Append the requested resource location to the URL   
+$url.= $_SERVER['REQUEST_URI'];    
+$zxc = parse_url($url, PHP_URL_QUERY);
 
 ?> 
 
@@ -65,6 +73,29 @@ if(isset($_POST['deleteall'])){
         $_SESSION['cart'][$id]['quantity'] = 0; 
     }
     }
+
+function ftime(){
+	$_SESSION['totalq'] = '';
+    if(isset($_SESSION['cart'])){ 
+       $sql="SELECT * FROM `product` ORDER BY name ASC";
+             $query=mysqli_query($dbconnect, $sql);
+        while ($row=mysqli_fetch_array($query))
+        { 
+         
+           $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];  
+           if ($temp_quantity!='') 
+           {
+            $_SESSION['totalq'] = $temp_quantity;
+            }
+        }
+	}
+	else{ 
+		   
+		 echo "<p>Ваша корзина пуста.</p>"; 
+		   
+	 } 
+	return $text;
+}
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +145,7 @@ if(isset($_POST['deleteall'])){
 
         <div class="ctrl_sum update">Сумма заказа: $<?php echo $totalprice ?></div> 
         <br /> 
-        <button class="add-to-cart no-round-btn modalbox-test" href="#feedback-form" data-feedback-conid="morkov-19" data-feedback-msg="Интересует продукт Мини-морковь мытая" style="width: 20%;">Заказать</button>
+        <button class="add-to-cart no-round-btn modalbox-test" href="#feedback-form" style="width: 20%;">Заказать</button>
         <button type="submit" name="submit" class="no-round-btn" style="width: 20%;">Обновить</button>
         <button type="deleteall" name="deleteall" class="no-round-btn" style="width: 20%;">Удалить всё</button>
     </form> 
@@ -124,31 +155,39 @@ if(isset($_POST['deleteall'])){
             <input class="no-round-input mt-20" name="name" type="text" placeholder="Имя"><br>
             <input class="no-round-input mt-20" name="phone" type="phone" required placeholder="Телефон"><br>
             <input class="no-round-input mt-20" name="email" type="email" required placeholder="Email"><br>
-            <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea><br>
-            <input type="hidden" name="csrfmiddlewaretoken" value="9S8Mcg2E5Nk04ejx2Hj5T15tVDFUzOeBovqGnhb13LmravMgVgf8tJQrXymUXKoj">
+            <textarea class="textarea-form mt-20" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"><?php $_SESSION['totalq'] = '';
+    if(isset($_SESSION['cart'])){ 
+       $sql="SELECT * FROM `product` ORDER BY name ASC";
+             $query=mysqli_query($dbconnect, $sql);
+        while ($row=mysqli_fetch_array($query))
+        { 
+         
+           $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];  
+           if ($temp_quantity!='') 
+           {
+            $text = ''.$row['name'].' x '.$temp_quantity.'; ';
+            echo $text;
+            $_SESSION['totalq'] = $temp_quantity;
+            }
+            
+        }
+        
+            ?> 
+    <?php 
+          
+    
+   }
+   else{ 
+          
+        echo "<p>Ваша корзина пуста.</p>"; 
+          
+    } 
+    
+  ?>
+</textarea><br>
             <button type="submit" class="normal-btn mt-20">Отправить сообщение</button>
         </form>
     </div>
-
-    <form class="form-feedback" action="send.php" name="contact"  method="POST">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <input class="no-round-input" name="name" type="text" placeholder="Имя">
-            </div>
-            <div class="col-12 col-md-4">
-                <input class="no-round-input" name="phone" type="phone" required placeholder="Телефон">
-            </div>
-            <div class="col-12 col-md-4">
-                <input class="no-round-input" name="email" type="email" required placeholder="Email">
-            </div>
-            <div class="col-12">
-                <textarea class="textarea-form" name="msg" cols="30" rows="10" placeholder="Ваше сообщение"></textarea>  
-            </div>
-            <div class="col-12">
-                <button type="submit" class="normal-btn">Отправить сообщение</button>
-            </div>
-        </div>
-    </form>
 
 </body>
 <html>

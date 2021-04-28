@@ -1,16 +1,21 @@
 <?php
 // Файлы phpmailer
-require 'gretskiy/static/phpmailer/phpmailer/PHPMailer.php';
-require 'gretskiy/static/phpmailer/phpmailer/SMTP.php';
-require 'gretskiy/static/phpmailer/phpmailer/Exception.php';
+require '../shopping/connection.php';
+require '../gretskiy/static/phpmailer/phpmailer/PHPMailer.php';
+require '../gretskiy/static/phpmailer/phpmailer/SMTP.php';
+require '../gretskiy/static/phpmailer/phpmailer/Exception.php';
+
 
 // Переменные, которые отправляет пользователь
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $message = $_POST['msg'];
 $email = $_POST['email'];
+$sql="SELECT * FROM `product` ORDER BY name ASC"; 
+                      
 
-
+$namep =  $_SESSION['totalq'];
+ 
 // Формирование самого письма
 $title = "Новое обращение - gretskiy.by";
 $body = "
@@ -19,7 +24,12 @@ $body = "
 <b>Телефон:</b> $phone<br>
 <b>Email:</b><br>$email<br>
 <b>Сообщение:</b><br>$message<br>
-";
+
+<b>Ваш заказ:</b><br>  $namep  <br>
+"
+
+
+;
 
 
 $mail = new PHPMailer\PHPMailer\PHPMailer();
@@ -38,7 +48,7 @@ try {
     $mail->Port       = 465;
     $mail->setFrom('isayev.official@gmail.com', 'Егор Исаев');
 
-    $mail->addAddress('dima346922336@gmail.com');
+    $mail->addAddress('socialalah@mail.ru');
    
 
     $mail->isHTML(true);
@@ -54,4 +64,4 @@ else {$result = "error";}
     $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
 }
 echo json_encode(["result" => $result, "resultfile" => $rfile, "status" => $status]);
-header('Location: contact.php');
+header('Location:../shopping/cart.php');

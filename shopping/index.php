@@ -208,10 +208,6 @@ else{
          </header>
       
     <div id="container"> 
-  
-        <div id="main"> 
-           <?php require("cart.php"); ?>
-        </div><!--end main-->
           
         <div id="sidebar"> 
           <h1>Заказ</h1> 
@@ -227,12 +223,11 @@ else{
            $temp_quantity = $_SESSION['cart'][$row['id']]['quantity'];  
            if ($temp_quantity!='') 
            {
-           
-           
-        
-            echo '<p class="cart_p">'?>
-          <?php echo $row['name'] ?> x <?php echo $temp_quantity?>
-          <?php echo '</p>';
+              echo '<p class="cart_p">';
+            $text = ''.$row['name'].' x '.$temp_quantity.'';
+            echo '</p>';
+            $text1 = $text1 + $text;
+            echo $text;
             $_SESSION['totalq'] = $temp_quantity;
             }
             
@@ -251,7 +246,10 @@ else{
     
   
 ?>
-        </div><!--end sidebar-->
+        </div><!--end sidebar--> 
+        <div id="main" style="margin-top:-115px;"> 
+           <?php require("cart.php"); ?>
+        </div><!--end main-->
     </div><!--end container-->
     <footer>
          <div class="container">
